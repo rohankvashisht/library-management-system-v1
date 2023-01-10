@@ -11,5 +11,7 @@ pip3 install -r requirements.txt
 python3 main.py
 ```
 
+## Note
+By default, Username is `admin` and Password is `admin@123`
 
-This project has been referenced from: [CopyAssignment](https://copyassignment.com/library-management-system-python-project-with-source-code-gui-and-database/)
+> This project has been referenced from: [CopyAssignment](https://copyassignment.com/library-management-system-python-project-with-source-code-gui-and-database/)
