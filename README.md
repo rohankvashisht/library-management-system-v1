@@ -1,6 +1,6 @@
 # Library Management System
 A GUI based program to manage library resources digitally. 
-> This has been programmed entirely on Python using `tkinter` module.
+> Programming Language used is `Python` with `tkinter` module for GUI. Database used is `SQLite`.
 
 ## How to use this program ?
 ```bash
