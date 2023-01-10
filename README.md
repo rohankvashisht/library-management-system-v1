@@ -1,6 +1,12 @@
-# library-management-system
-A library management system built using Python
+# Library Management System
+A GUI based program to manage library resources digitally. 
+> This has been programmed entirely on Python using `tkinter` module.
 
-This repository is being updated. Please wait for a while.
+## How to use this program ?
+```bash
+# install module dependencies
+pip3 install -r requirements.txt
+```
 
-Reference: [CopyAssignment](https://copyassignment.com/library-management-system-python-project-with-source-code-gui-and-database/)
+
+This project has been referenced from: [CopyAssignment](https://copyassignment.com/library-management-system-python-project-with-source-code-gui-and-database/)
