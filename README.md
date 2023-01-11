@@ -4,6 +4,9 @@ A GUI based program to manage library resources digitally.
 
 ## How to use this program ?
 ```bash
+# install SQLite Studio
+Download from this link: (https://sqlitestudio.pl)
+
 # install module dependencies
 pip3 install -r requirements.txt
 
