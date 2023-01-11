@@ -42,7 +42,7 @@ class main:
             
             self.lbb=Label(self.fm2,bg='#012727')
             self.lbb.place(x=15,y=5)
-            self.ig=PhotoImage(file='filename.png')
+            self.ig=PhotoImage(file='images/afterlogin1.png')
             self.lbb.config(image=self.ig)
             
             self.lb3=Label(self.fm2,text='DASHBOARD',fg='White',bg='#012727',font=('times new roman',30,'bold'))
@@ -97,7 +97,7 @@ class main:
         self.canvas8 = Canvas(self.fm3, bg='black', width=400, height=300)
         self.canvas8.place(x=475, y=40)
         
-        self.photo9=PhotoImage(file="filename.png")
+        self.photo9=PhotoImage(file="images/afterlogin1.png")
         self.canvas8.create_image(0,0,image=self.photo9,anchor=NW)
         
         self.develop=Label(self.fm3,text='Developed By - Ishika',bg='#fff',fg='#d7837f', font=('Candara',12,'bold'))
@@ -106,7 +106,7 @@ class main:
         
         self.bt1=Button(self.fm3,text='  Add Books',fg='#fff',bg='#581845',font=('Candara',15,'bold'),width=170,height=0,bd=7,relief='flat',command=self.addbook,cursor='hand2',activebackground='black',activeforeground='#581845')
         self.bt1.place(x=40,y=40)
-        self.logo = PhotoImage(file='bt1.png')
+        self.logo = PhotoImage(file='images/bt1.png')
         self.bt1.config(image=self.logo, compound=LEFT)
         self.small_logo = self.logo.subsample(1,1)
         self.bt1.config(image=self.small_logo)
@@ -114,7 +114,7 @@ class main:
         
         self.bt2 = Button(self.fm3, text='  Issue Books', fg='#fff', bg='#581845', font=('Candara', 15, 'bold'),width=170,height=0, bd=7,relief='flat',command=self.issuebook,cursor='hand2',activebackground='black',activeforeground='#581845')
         self.bt2.place(x=250, y=40)
-        self.log = PhotoImage(file='bt2.png')
+        self.log = PhotoImage(file='images/bt2.png')
         self.bt2.config(image=self.log, compound=LEFT)
         self.small_log = self.log.subsample(1, 1)
         self.bt2.config(image=self.small_log)
@@ -122,7 +122,7 @@ class main:
              
         self.bt3 = Button(self.fm3, text='  Edit Books', fg='#fff', bg='#581845', font=('Candara', 15, 'bold'),width=170,height=0,bd=7,relief='flat',cursor='hand2',command=self.edit,activebackground='black',activeforeground='#581845')
         self.bt3.place(x=40, y=120)
-        self.logb = PhotoImage(file='bt3.png')
+        self.logb = PhotoImage(file='images/bt3.png')
         self.bt3.config(image=self.logb, compound=LEFT)
         self.small_logb = self.logb.subsample(1, 1)
         self.bt3.config(image=self.small_logb)
@@ -130,7 +130,7 @@ class main:
              
         self.bt4 = Button(self.fm3, text='  Return Books', fg='#fff', bg='#581845', font=('Candara', 15, 'bold'),width=170,height=0,bd=7,relief='flat',cursor='hand2',command=self.returnbook,activebackground='black',activeforeground='#581845')
         self.bt4.place(x=250, y=120)
-        self.log4 = PhotoImage(file='bt4.png')
+        self.log4 = PhotoImage(file='images/bt4.png')
         self.bt4.config(image=self.log4, compound=LEFT)
         self.small_log4 = self.log4.subsample(1, 1)
         self.bt4.config(image=self.small_log4)
@@ -138,7 +138,7 @@ class main:
              
         self.bt5 = Button(self.fm3, text=' Delete Books', fg='#fff', bg='#581845', font=('Candara', 15, 'bold'),width=170,height=0,bd=7,relief='flat',cursor='hand2',command=self.delete,activebackground='black',activeforeground='#581845')
         self.bt5.place(x=40, y=200)
-        self.log5 = PhotoImage(file='bt5.png')
+        self.log5 = PhotoImage(file='images/bt5.png')
         self.bt5.config(image=self.log5, compound=LEFT)
         self.small_log5 = self.log5.subsample(1, 1)
         self.bt5.config(image=self.small_log5)
@@ -146,14 +146,14 @@ class main:
  
         self.bt6 = Button(self.fm3, text=' Show Books', fg='#fff', bg='#581845', font=('Candara', 15, 'bold'),width=170,height=0,bd=7, relief='flat',cursor='hand2',command=self.show,activebackground='black',activeforeground='#581845')
         self.bt6.place(x=40, y=280)
-        self.log6 = PhotoImage(file='bt6.png')
+        self.log6 = PhotoImage(file='images/bt6.png')
         self.bt6.config(image=self.log6, compound=LEFT)
         self.small_log6 = self.log6.subsample(1, 1)
         self.bt6.config(image=self.small_log6)
     
         self.bt7 = Button(self.fm3, text='  Search Books', fg='#fff', bg='#581845', font=('Candara', 15, 'bold'),width=170,height=0,bd=7, relief='flat',cursor='hand2',command=self.search,activebackground='black',activeforeground='#581845')
         self.bt7.place(x=250, y=200)
-        self.log7 = PhotoImage(file='bt7.png')
+        self.log7 = PhotoImage(file='images/bt7.png')
         self.bt7.config(image=self.log7, compound=LEFT)
         self.small_log7 = self.log7.subsample(1, 1)
         self.bt7.config(image=self.small_log7)
@@ -162,7 +162,7 @@ class main:
 
             self.bt8 = Button(self.fm3, text='  Log Out', fg='#fff', bg='#581845', font=('Candara', 15, 'bold'),width=170,height=0, bd=7, relief='flat',cursor='hand2',command=self.code,activebackground='black',activeforeground='#581845')
             self.bt8.place(x=250, y=280)
-            self.log8 = PhotoImage(file='bt8.png')
+            self.log8 = PhotoImage(file='images/bt8.png')
             self.bt8.config(image=self.log8, compound=LEFT)
             self.small_log8 = self.log8.subsample(1, 1)
             self.bt8.config(image=self.small_log8)
@@ -171,7 +171,7 @@ class main:
 
             self.bt9 = ttk.Button(self.fm3, text="Ram", bg='#a40000', font=('Candara', 15, 'bold'), width=150,height=0)
             self.bt9.place(x=40, y=350)
-            self.log9 = PhotoImage(file='bt8.png')
+            self.log9 = PhotoImage(file='images/bt8.png')
             self.bt9.config(image=self.log9, compound=LEFT)
             self.small_log9 = self.log9.subsample(3, 3)
             self.bt9.config(image=self.small_log9)
@@ -188,7 +188,7 @@ class main:
                 
                 self.backbt = Button(self.fm, width=60, bg='#ffe8ec', bd=0, relief='flat',command=self.cur,activeforeground='black',activebackground='#ffe8ec')
                 self.backbt.place(x=2, y=7)
-                self.log = PhotoImage(file='filename.png')
+                self.log = PhotoImage(file='images/afterlogin1.png')
                 self.backbt.config(image=self.log, compound=LEFT)
                 self.small_log = self.log.subsample(2, 2)
                 self.backbt.config(image=self.small_log)
@@ -284,7 +284,7 @@ class main:
                  
                 self.backbt = Button(self.fmi,width=60, bg='#ffe8ec',activebackground='#ffe8ec',bd=0, relief='flat',command=self.issueback)
                 self.backbt.place(x=5, y=5)
-                self.log = PhotoImage(file='filename.png')
+                self.log = PhotoImage(file='images/afterlogin1.png')
                 self.backbt.config(image=self.log, compound=LEFT)
                 self.small_log = self.log.subsample(2, 2)
                 self.backbt.config(image=self.small_log)
@@ -368,7 +368,7 @@ class main:
                     if(self.flag!=1):
                         self.boot=Tk()
                         self.boot.title("Issue Books")
-                        self.boot.iconbitmap("filename.ico")
+                        self.boot.iconbitmap("images/afterlogin1.ico")
                         self.boot.configure(bg='#ffe8ec')
                         self.boot.geometry("370x450+880+30")
                         self.boot.resizable(0,0)
@@ -507,7 +507,7 @@ class main:
 
                 self.backbt = Button(self.ffm, width=60, bg='#ffe8ec',activebackground='#ffe8ec',bd=0, relief='flat', command=self.cur)
                 self.backbt.place(x=0, y=0)
-                self.log = PhotoImage(file='filename.png')
+                self.log = PhotoImage(file='images/afterlogin1.png')
                 self.backbt.config(image=self.log, compound=LEFT)
                 self.small_log = self.log.subsample(2, 2)
                 self.backbt.config(image=self.small_log)
@@ -523,7 +523,7 @@ class main:
                     self.edcat.title("Library System")
                     self.edcat.geometry("300x360+600+230")
                     self.edcat.configure(bg='#ffe8ec')
-                    self.edcat.iconbitmap("filename.ico")
+                    self.edcat.iconbitmap("images/afterlogin1.ico")
                     
                     self.fc=Frame(self.edcat,bg='#1c1c1b',width=90,height=30)
                     self.fc.place(x=80,y=10)
@@ -611,7 +611,7 @@ class main:
                 
                 self.backbt = Button(self.frame, width=60, bg='#ffe8ec', activebackground='#ffe8ec',bd=0, relief='flat', command=self.cur)
                 self.backbt.place(x=0, y=0)
-                self.log = PhotoImage(file='filename.png')
+                self.log = PhotoImage(file='images/afterlogin1.png')
                 self.backbt.config(image=self.log, compound=LEFT)
                 self.small_log = self.log.subsample(2,2)
                 self.backbt.config(image=self.small_log)
@@ -665,7 +665,7 @@ class main:
                             else:
                                 self.tom=Tk()
                                 self.tom.geometry("300x150+300+258")
-                                self.tom.iconbitmap("filename.ico")
+                                self.tom.iconbitmap("images/afterlogin1.ico")
                                 self.tom.title("Library System")
                                 self.tom.resizable(0,0)
                                 self.tom.configure(bg="#ffe8ec")
@@ -771,7 +771,7 @@ class main:
 
                 self.backbt = Button(self.fc,width=60, bg='#ffe8ec',activebackground='#ffe8ec',bd=0, relief='flat', command=self.cur)
                 self.backbt.place(x=0, y=0)
-                self.log = PhotoImage(file='filename.png')
+                self.log = PhotoImage(file='images/afterlogin1.png')
                 self.backbt.config(image=self.log, compound=LEFT)
                 self.small_log = self.log.subsample(2, 2)
                 self.backbt.config(image=self.small_log)
@@ -785,7 +785,7 @@ class main:
                 if self.srval!=None:
                     self.top=Tk()
                     self.top.title("Library System")
-                    self.top.iconbitmap("filename.ico")
+                    self.top.iconbitmap("images/afterlogin1.ico")
                     self.top.geometry("400x200+335+250")
                     self.top.resizable(0, 0)
                     self.top.configure(bg='#ffe8ec')
@@ -831,7 +831,7 @@ class main:
 
                 self.backbt = Button(self.fc,width=30, bg='#ffe8ec',activebackground='#ffe8ec',bd=0, relief='flat', command=self.cur)
                 self.backbt.place(x=0, y=0)
-                self.log = PhotoImage(file='filename.png')
+                self.log = PhotoImage(file='images/afterlogin1.png')
                 self.backbt.config(image=self.log, compound=LEFT)
                 self.small_log = self.log.subsample(3, 3)
                 self.backbt.config(image=self.small_log)
@@ -928,7 +928,7 @@ class main:
         self.rog=Tk()
         self.rog.title("Change password")
         self.rog.geometry("400x300+300+210")
-        self.rog.iconbitmap("filename.ico")
+        self.rog.iconbitmap("images/afterlogin1.ico")
         self.rog.resizable(0,0)
         self.rog.configure(bg='#000')
 
