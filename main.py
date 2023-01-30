@@ -14,10 +14,16 @@ from datetime import datetime
 from datetime import timedelta
 from datetime import date
 
-db=sqlite3.connect('admin.db')
-dbstore=sqlite3.connect('StoreBooks.db')
-dbstudents=sqlite3.connect('StudentsData.db')
+# connecting with the Admin database
+db = sqlite3.connect('admin.db')
 
+# connecting with the Books database
+dbstore = sqlite3.connect('StoreBooks.db')
+
+# connecting with the Students database
+dbstudents = sqlite3.connect('StudentsData.db')
+
+# generating window frame using tkinter
 root = Tk()
 root.title("Library Management System")
 root.iconbitmap('images/aa.ico')
@@ -25,14 +31,19 @@ root.geometry("900x500+50+100")
 root.resizable(0, 0)
 
 class main:
+    # login functionality
     def login(self):
+        # getting user inputs: User ID and Password
         self.var1 = self.e1.get()
         self.var2 = self.e2.get()
-        cursor=db.cursor()
+
+        # run SQL query
+        cursor = db.cursor()
         cursor.execute("SELECT * FROM UserLogin WHERE UserID='"+self.var1+"' and Password='"+self.var2+"'")
         db.commit()
         self.ab = cursor.fetchone()
         
+        # change GUI if SQL inputs matches record
         if self.ab!=None:
             self.under_fm=Frame(root,height=500,width=900,bg='#fff')
             self.under_fm.place(x=0,y=0)
@@ -48,11 +59,13 @@ class main:
             self.lb3=Label(self.fm2,text='DASHBOARD',fg='White',bg='#012727',font=('times new roman',30,'bold'))
             self.lb3.place(x=325,y=17)
             
+            # show user name
             self.name=Label(root,text="Name : ",bg='#fff',fg="black",font=('Calibri',12,'bold'))
             self.name.place(x=5,y=83)
             self.name1=Label(root,text=self.ab[0],fg='black',bg='#fff',font=('Calibri',12,'bold'))
             self.name1.place(x=60,y=83)
             
+            # show current date
             self.today=date.today()
             self.dat=Label(root,text='Date : ',bg='#fff',fg='black',font=('Calibri',12,'bold'))
             self.dat.place(x=750,y=83)
@@ -67,6 +80,7 @@ class main:
         self.fm3=Frame(root,bg='#fff',width=900,height=390)
         self.fm3.place(x=0,y=110)
         
+        # show current time
         def clock():
             h = str(time.strftime("%H"))
             m = str(time.strftime("%M"))
@@ -97,9 +111,11 @@ class main:
         self.canvas8 = Canvas(self.fm3, bg='black', width=400, height=300)
         self.canvas8.place(x=475, y=40)
         
+        # show image on right side of dashboard
         self.photo9=PhotoImage(file="images/afterlogin1.png")
         self.canvas8.create_image(0,0,image=self.photo9,anchor=NW)
         
+        # show developer credits in footnote
         self.develop=Label(self.fm3,text='Developed By - Group 1',bg='#fff',fg='#d7837f', font=('Candara',12,'bold'))
         self.develop.place(x=732,y=350)
         
@@ -175,7 +191,8 @@ class main:
             self.bt9.config(image=self.log9, compound=LEFT)
             self.small_log9 = self.log9.subsample(3, 3)
             self.bt9.config(image=self.small_log9)
-            
+
+    # add book functionality        
     def addbook(self):
         class temp(main):
             def book(self):
@@ -254,7 +271,8 @@ class main:
                 
         obj=temp()
         obj.book()
-        
+    
+    # issue book functionality
     def issuebook(self):
         class test(main):
             max=0
