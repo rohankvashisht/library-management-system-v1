@@ -188,7 +188,7 @@ class main:
                 
                 self.backbt = Button(self.fm, width=60, bg='#ffe8ec', bd=0, relief='flat',command=self.cur,activeforeground='black',activebackground='#ffe8ec')
                 self.backbt.place(x=2, y=7)
-                self.log = PhotoImage(file='images/afterlogin1.png')
+                self.log = PhotoImage(file='images/backbtn1.png')
                 self.backbt.config(image=self.log, compound=LEFT)
                 self.small_log = self.log.subsample(2, 2)
                 self.backbt.config(image=self.small_log)
@@ -284,7 +284,7 @@ class main:
                  
                 self.backbt = Button(self.fmi,width=60, bg='#ffe8ec',activebackground='#ffe8ec',bd=0, relief='flat',command=self.issueback)
                 self.backbt.place(x=5, y=5)
-                self.log = PhotoImage(file='images/afterlogin1.png')
+                self.log = PhotoImage(file='images/backbtn1.png')
                 self.backbt.config(image=self.log, compound=LEFT)
                 self.small_log = self.log.subsample(2, 2)
                 self.backbt.config(image=self.small_log)
@@ -468,7 +468,7 @@ class main:
                 cursor=dbstudents.cursor()
                 cursor.execute("SELECT * FROM Students WHERE ERP='"+self.erpid+"'")
                 self.var=cursor.fetchone()
-                sender = "libraryauthority@gmail.com"
+                sender = "mb22007@students.iitmandi.ac.in"
                 reciever =self.var[5]
                 with open("pass.txt",'r') as file:
                         password=file.read()
@@ -507,7 +507,7 @@ class main:
 
                 self.backbt = Button(self.ffm, width=60, bg='#ffe8ec',activebackground='#ffe8ec',bd=0, relief='flat', command=self.cur)
                 self.backbt.place(x=0, y=0)
-                self.log = PhotoImage(file='images/afterlogin1.png')
+                self.log = PhotoImage(file='images/backbtn1.png')
                 self.backbt.config(image=self.log, compound=LEFT)
                 self.small_log = self.log.subsample(2, 2)
                 self.backbt.config(image=self.small_log)
@@ -611,7 +611,7 @@ class main:
                 
                 self.backbt = Button(self.frame, width=60, bg='#ffe8ec', activebackground='#ffe8ec',bd=0, relief='flat', command=self.cur)
                 self.backbt.place(x=0, y=0)
-                self.log = PhotoImage(file='images/afterlogin1.png')
+                self.log = PhotoImage(file='images/backbtn1.png')
                 self.backbt.config(image=self.log, compound=LEFT)
                 self.small_log = self.log.subsample(2,2)
                 self.backbt.config(image=self.small_log)
@@ -771,7 +771,7 @@ class main:
 
                 self.backbt = Button(self.fc,width=60, bg='#ffe8ec',activebackground='#ffe8ec',bd=0, relief='flat', command=self.cur)
                 self.backbt.place(x=0, y=0)
-                self.log = PhotoImage(file='images/afterlogin1.png')
+                self.log = PhotoImage(file='images/backbtn1.png')
                 self.backbt.config(image=self.log, compound=LEFT)
                 self.small_log = self.log.subsample(2, 2)
                 self.backbt.config(image=self.small_log)
@@ -831,7 +831,7 @@ class main:
 
                 self.backbt = Button(self.fc,width=30, bg='#ffe8ec',activebackground='#ffe8ec',bd=0, relief='flat', command=self.cur)
                 self.backbt.place(x=0, y=0)
-                self.log = PhotoImage(file='images/afterlogin1.png')
+                self.log = PhotoImage(file='images/backbtn1.png')
                 self.backbt.config(image=self.log, compound=LEFT)
                 self.small_log = self.log.subsample(3, 3)
                 self.backbt.config(image=self.small_log)
