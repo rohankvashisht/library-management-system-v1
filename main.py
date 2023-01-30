@@ -515,7 +515,7 @@ class main:
             def searchedit(self):
                 self.datas=self.entry.get()
                 cursor=dbstore.cursor()
-                cursor.execute("SELECT * FROM Books WHERE BookID = '"+self.datas+"'" )
+                cursor.execute("SELECT * FROM Books WHERE BookID = '"+self.datas+"'")
                 dbstore.commit()
                 self.val=cursor.fetchone()
                 if self.val!=None:
