@@ -505,6 +505,7 @@ class main:
         obissue=test()
         obissue.issue()
     
+    # edit book details functionality
     def edit(self):
         class editing(main):
             def edbooks(self):
@@ -606,7 +607,8 @@ class main:
                     self.entry.delete(0,END)
         obj=editing()
         obj.edbooks()
-        
+    
+    # return book functionality
     def returnbook(self):
         class retu(main):
             def __init__(self):
@@ -721,7 +723,8 @@ class main:
                     self.entry4.delete(0,END)
             
         object=retu()
-            
+
+    # delete book record functionality
     def delete(self):
         class dele(main):
             def deletebooks(self):
@@ -835,7 +838,8 @@ class main:
                     self.entryl.delete(0,END)
         object=demt()
         object.delmdata()
-        
+    
+    # show books functionality
     def show(self):
         class test(main):
             def __init__(self):
@@ -894,7 +898,7 @@ class main:
         self.e1.delete(0,END)
         self.e2.delete(0,END)
         
-        
+       
     def code(self):
 
             self.fm=Frame(root,height=500,width=900,bg='white')
