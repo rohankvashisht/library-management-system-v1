@@ -100,7 +100,7 @@ class main:
         self.photo9=PhotoImage(file="images/afterlogin1.png")
         self.canvas8.create_image(0,0,image=self.photo9,anchor=NW)
         
-        self.develop=Label(self.fm3,text='Developed By - Ishika',bg='#fff',fg='#d7837f', font=('Candara',12,'bold'))
+        self.develop=Label(self.fm3,text='Developed By - Group 1',bg='#fff',fg='#d7837f', font=('Candara',12,'bold'))
         self.develop.place(x=732,y=350)
         
         
