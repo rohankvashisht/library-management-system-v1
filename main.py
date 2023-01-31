@@ -45,7 +45,7 @@ class main:
         
         # change GUI if SQL inputs matches record
         if self.ab!=None:
-            self.under_fm=Frame(root,height=500,width=900,bg='#fff')
+            self.under_fm=Frame(root,height=500,width=900,bg='#ffffff')
             self.under_fm.place(x=0,y=0)
             
             self.fm2=Frame(root,bg='#012727',height=80,width=900)
@@ -190,7 +190,7 @@ class main:
             self.small_log9 = self.log9.subsample(3, 3)
             self.bt9.config(image=self.small_log9)
 
-    # add book functionality        
+    # add book functionality     
     def addbook(self):
         class temp(main):
             def book(self):
@@ -202,8 +202,10 @@ class main:
                 self.fm1.place(x=200,y=15)
                 
                 self.backbt = Button(self.fm, width=60, bg='#ffe8ec', bd=0, relief='flat',command=self.cur,activeforeground='black',activebackground='#ffe8ec')
+
                 self.backbt.place(x=2, y=7)
                 self.log = PhotoImage(file='images/backbtn1.png')
+
                 self.backbt.config(image=self.log, compound=LEFT)
                 self.small_log = self.log.subsample(2, 2)
                 self.backbt.config(image=self.small_log)
@@ -211,7 +213,7 @@ class main:
                 self.fll=Frame(self.fm1,width=150,height=40,bg='#ff6690')
                 self.fll.place(x=150,y=15)
                 self.ll=Label(self.fll,text='ADD BOOKS',fg='#fff',bg='#ff6690',font=('Canara',12,'bold'),width=15)
-                #self.ll.config(height=5)
+                # self.ll.config(height=5)
                 self.ll.place(x=0,y=8)
                         
                 self.lb=Label(self.fm1,text='ID',fg='black',bg='#ffe8ec',font=('times new roman',11,'bold'))
@@ -249,15 +251,17 @@ class main:
                     self.pri=self.ee5.get()
 
                     if(self.id and self.ttl and self.aut and self.edi and self.pri):
-                            # run SQL query
-                            cursor=dbstore.cursor()
-                            cursor.execute("INSERT INTO Books(BookID,Title,Author,Edition,Price) values(?,?,?,?,?)",(self.id,
-                                                                                                            self.ttl,self.aut,self.edi,self.pri))
-                            dbstore.commit()
-                            messagebox.showinfo("Success","Book has been added to the library succesfully")
-                            self.clear()
+
+                        # run SQL query
+                        cursor=dbstore.cursor()
+                        cursor.execute("INSERT INTO Books(BookID,Title,Author,Edition,Price) values(?,?,?,?,?)",(self.id,
+                                                                                                        self.ttl,self.aut,self.edi,self.pri))
+                        dbstore.commit()
+                        
+                        messagebox.showinfo("Success","Book has been added to the library succesfully")
+                        self.clear()
                     else:
-                            messagebox.showerror("Error", "Enter Valid Details")
+                        messagebox.showerror("Error", "Enter Valid Details")
                 except Exception as e:
                     messagebox.showerror("Error", "Enter Valid Details")
             
@@ -276,6 +280,7 @@ class main:
         class test(main):
             max=0
             n = 1
+
             def issue(self):
                 self.f = Frame(root, bg='#ffe8ec', width=900, height=390)
                 self.f.place(x=0, y=110)
