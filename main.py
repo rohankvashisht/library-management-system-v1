@@ -53,7 +53,8 @@ class main:
             
             self.lbb=Label(self.fm2,bg='#012727')
             self.lbb.place(x=15,y=5)
-            self.ig=PhotoImage(file='images/afterlogin1.png')
+
+            self.ig=PhotoImage(file='images/library.png')
             self.lbb.config(image=self.ig)
             
             self.lb3=Label(self.fm2,text='DASHBOARD',fg='White',bg='#012727',font=('times new roman',30,'bold'))
@@ -77,7 +78,7 @@ class main:
             messagebox.showerror('Library System', 'Your ID or Password is invalid!')
             
     def cur(self):
-        self.fm3=Frame(root,bg='#fff',width=900,height=390)
+        self.fm3=Frame(root,bg='#ffffff',width=900,height=390)
         self.fm3.place(x=0,y=110)
         
         # show current time
@@ -257,7 +258,7 @@ class main:
                         cursor.execute("INSERT INTO Books(BookID,Title,Author,Edition,Price) values(?,?,?,?,?)",(self.id,
                                                                                                         self.ttl,self.aut,self.edi,self.pri))
                         dbstore.commit()
-                        
+
                         messagebox.showinfo("Success","Book has been added to the library succesfully")
                         self.clear()
                     else:
@@ -716,7 +717,7 @@ class main:
                                 self.tom=Tk()
                                 self.tom.geometry("300x150+300+258")
                                 self.tom.iconbitmap("images/afterlogin1.ico")
-                                self.tom.title("Library System")
+                                self.tom.title('Library System')
                                 self.tom.resizable(0,0)
                                 self.tom.configure(bg="#ffe8ec")
 
@@ -949,7 +950,8 @@ class main:
             self.canvas=Canvas(self.fm,height=500,width=900,bg='#000000')
             self.canvas.place(x=0,y=0)
 
-            self.photo=PhotoImage(file=r"images/library.png")
+            # image in backdrop of login page
+            self.photo=PhotoImage(file=r"images/library-background.png")
             self.canvas.create_image(0,0,image=self.photo,anchor=NW)
 
             self.fm1=Frame(self.canvas,height=260,width=300,bg='#000000',bd=3,relief='sunken')
