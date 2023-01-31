@@ -175,7 +175,6 @@ class main:
         self.bt7.config(image=self.small_log7)
         
         try:
-
             self.bt8 = Button(self.fm3, text='  Log Out', fg='#fff', bg='#581845', font=('Candara', 15, 'bold'),width=170,height=0, bd=7, relief='flat',cursor='hand2',command=self.code,activebackground='black',activeforeground='#581845')
             self.bt8.place(x=250, y=280)
             self.log8 = PhotoImage(file='images/bt8.png')
@@ -184,7 +183,6 @@ class main:
             self.bt8.config(image=self.small_log8)
 
         except:
-
             self.bt9 = ttk.Button(self.fm3, text="Ram", bg='#a40000', font=('Candara', 15, 'bold'), width=150,height=0)
             self.bt9.place(x=40, y=350)
             self.log9 = PhotoImage(file='images/bt8.png')
@@ -251,6 +249,7 @@ class main:
                     self.pri=self.ee5.get()
 
                     if(self.id and self.ttl and self.aut and self.edi and self.pri):
+                            # run SQL query
                             cursor=dbstore.cursor()
                             cursor.execute("INSERT INTO Books(BookID,Title,Author,Edition,Price) values(?,?,?,?,?)",(self.id,
                                                                                                             self.ttl,self.aut,self.edi,self.pri))
@@ -309,6 +308,8 @@ class main:
         
             def check(self):
                 self.b=self.em2.get()
+
+                # run SQL query
                 cursor=dbstudents.cursor()
                 cursor.execute("SELECT * FROM Students WHERE ERP='"+self.b+"'")
                 self.var=cursor.fetchone()
@@ -359,6 +360,8 @@ class main:
             repeat=0
             def data(self):
                 self.b=self.em2.get()
+
+                # run SQL query
                 cursor=dbstudents.cursor()
                 cursor.execute("SELECT * FROM Students WHERE ERP='"+self.b+"'")
                 self.var=cursor.fetchone()
@@ -378,10 +381,12 @@ class main:
                 
                 self.vva=self.e1.get()
                 
+                # run SQL query
                 cursor=dbstore.cursor()
                 cursor.execute("SELECT * FROM Books WHERE BookID='"+self.vva+"'")
                 dbstore.commit()
                 self.value=cursor.fetchone()
+
                 if self.value!=None:
                     if(self.flag!=1):
                         self.boot=Tk()
@@ -458,12 +463,15 @@ class main:
                 self.datecon=self.cal.selection_get()
                
                 self.ac=self.e1.get()
+
+                # run SQL query
                 cursor=dbstore.cursor()
-                    
                 cursor.execute("UPDATE Books SET Issue='Issued', ID='"+self.b+"' WHERE BookID='"+self.ac+"'")
                 dbstore.commit()
                 
                 if self.n<=3:
+
+                    # run SQL query
                     book=dbstudents.cursor()
                     self.erpid1=self.em2.get()
                     book.execute("SELECT * FROM Students WHERE ERP='"+self.erpid1+"'")
@@ -472,6 +480,7 @@ class main:
                     book.execute("UPDATE Students SET NoBook='"+str(self.sum)+"' WHERE ERP='"+self.b+"' ")
                     dbstudents.commit()
                 
+                # run SQL query
                 comm=dbstudents.cursor()
                 comm.execute("UPDATE Students SET FromDate='"+str(self.x)+"', ToDate='"+str(self.datecon)+"' , SubmitDate='' WHERE ERP='"+self.b+"'")
                 dbstudents.commit()
@@ -483,6 +492,8 @@ class main:
             def mail(self):
 
                 self.erpid=self.em2.get()
+
+                # run SQL query
                 cursor=dbstudents.cursor()
                 cursor.execute("SELECT * FROM Students WHERE ERP='"+self.erpid+"'")
                 self.var=cursor.fetchone()
@@ -533,6 +544,8 @@ class main:
                 
             def searchedit(self):
                 self.datas=self.entry.get()
+
+                # run SQL query
                 cursor=dbstore.cursor()
                 cursor.execute("SELECT * FROM Books WHERE BookID = '"+self.datas+"'")
                 dbstore.commit()
@@ -596,9 +609,12 @@ class main:
                 self.pi = self.en5.get()
                 
                 if(self.id and self.ti and self.au and self.ed and self.pi):
+
+                    # run SQL query
                     cursor= dbstore.cursor()
                     cursor.execute("UPDATE Books SET BookID='"+self.id+"', Title='"+self.ti+"',Author='"+self.au+"',Edition='"+self.ed+"',Price='"+self.pi+"' WHERE BookID='"+self.datas+"'")
                     dbstore.commit()
+
                     messagebox.showinfo('Changes Saved','Data has been updated successfully!')
                     self.edcat.destroy()
                     self.entry.delete(0,END)
@@ -638,6 +654,8 @@ class main:
             
             def retsucc(self):
                 self.entry4.delete(0,END)
+
+                 # run SQL query
                 cursor1 = dbstudents.cursor()
                 cursor1.execute("UPDATE Students SET FromDate='',ToDate='',Charge='"+str(self.charge)+"' WHERE ERP='"+self.entry+"'")
                 dbstudents.commit()
@@ -647,23 +665,30 @@ class main:
             def retbook(self):
                 self.charge=0
                 self.entry=self.entry4.get()
+
+                # run SQL query
                 cursor=dbstudents.cursor()
                 cursor.execute("SELECT * FROM Students WHERE ERP='"+self.entry+"'")
                 dbstudents.commit()
                 self.data=cursor.fetchone()
+
                 if self.data!=None:
                     if(int(self.data[11])>=1):
                         self.get_date = date.today()
+
+                        # run SQL query
                         cursor = dbstudents.cursor()
                         cursor.execute("UPDATE Students SET NoBook = 0, SubmitDate='" + str(self.get_date) + "' WHERE ERP='" + self.entry + "'")
                         dbstudents.commit()
                         
+                        # run SQL query
                         cursor=dbstore.cursor()
                         cursor.execute("UPDATE Books SET Issue='', ID='' WHERE ID='"+self.entry+"'")
                         dbstore.commit()        
 
                         from datetime import datetime
                         
+                        # run SQL query
                         cursor=dbstudents.cursor()
                         cursor.execute("SELECT * FROM Students WHERE ERP='"+self.entry+"'")
                         dbstudents.commit()
@@ -710,6 +735,7 @@ class main:
                                 
                                 self.tom.mainloop()
                             
+                            # run SQL query
                             cursor1 = dbstudents.cursor()
                             cursor1.execute("UPDATE Students SET FromDate='',ToDate='',Charge='"+str(self.charge)+"' WHERE ERP='"+self.entry+"'")
                             dbstudents.commit()
@@ -753,6 +779,8 @@ class main:
                 
             def deldata(self):
                 self.a=self.entry4.get()
+
+                # run SQL query
                 cursor=dbstore.cursor()
                 cursorv=dbstore.cursor()
                 cursorv.execute("SELECT * FROM BOOKS WHERE BookID='"+self.a+"'")
@@ -760,8 +788,11 @@ class main:
                 self.validation=cursorv.fetchone()
                 
                 if(self.validation!=None):
+
+                    # run SQL query
                     cursor.execute("DELETE FROM Books WHERE BookID='"+self.a+"'")
                     dbstore.commit()
+
                     messagebox.showinfo('Succesful','The book is successfully removed from the store!')
                     self.entry4.delete(0,END)
                 else:
@@ -799,10 +830,13 @@ class main:
                 
             def srch(self):
                 self.emp=self.entryl.get()
+
+                # run SQL query
                 cursor=dbstore.cursor()
                 cursor.execute("SELECT * FROM Books WHERE BookID='"+self.emp+"'")
                 dbstore.commit()
                 self.srval=cursor.fetchone()
+
                 if self.srval!=None:
                     self.top=Tk()
                     self.top.title("Library System")
@@ -884,9 +918,12 @@ class main:
                 self.fetch_data()
             
             def fetch_data(self):
+
+                # run SQL query
                 cursor=dbstore.cursor()
                 cursor.execute("SELECT * FROM Books")
                 self.rows=cursor.fetchall()
+
                 if len(self.rows)!=0:
                         for self.row in self.rows:
                                 self.book_table.insert('',END,values=self.row)
@@ -978,22 +1015,28 @@ class main:
     def chan_pas(self):
         self.a=self.ef1.get()
         self.b=self.ef2.get()
+
         import sqlite3
         conn=sqlite3.connect('admin.db')
+
+        # run SQL query
         cursor=conn.cursor()
         cursor.execute("SELECT * FROM UserLogin WHERE UserID='"+self.a+"'")
         conn.commit()
         self.data=cursor.fetchone()
 
         if self.data!=None:
-                cursor = conn.cursor()
-                cursor.execute("UPDATE UserLogin SET Password='" + self.b + "' WHERE UserID='" + self.a + "'")
-                conn.commit()
-                messagebox.showinfo("SUCCESSFUL","Your Password is changed")
-                self.rog.destroy()
+
+            # run SQL query
+            cursor = conn.cursor()
+            cursor.execute("UPDATE UserLogin SET Password='" + self.b + "' WHERE UserID='" + self.a + "'")
+            conn.commit()
+
+            messagebox.showinfo("SUCCESSFUL","Your Password is changed")
+            self.rog.destroy()
         else:
-                messagebox.showerror("ERROR", "UserID doesn't exist")
-                self.rog.destroy()
+            messagebox.showerror("ERROR", "UserID doesn't exist")
+            self.rog.destroy()
                 
         self.rog.mainloop()
                                                                                 
