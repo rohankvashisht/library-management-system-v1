@@ -32,6 +32,119 @@ root.resizable(0, 0)
 
 class main:
 
+    # start page functionality
+    def code(self):
+
+        self.fm=Frame(root,height=500,width=900,bg='white')
+        self.fm.place(x=0,y=0)
+
+        self.canvas=Canvas(self.fm,height=500,width=900,bg='#000000')
+        self.canvas.place(x=0,y=0)
+
+        # image in backdrop of login page
+        self.photo=PhotoImage(file=r"images/library-background.png")
+        self.canvas.create_image(0,0,image=self.photo,anchor=NW)
+
+        self.fm1=Frame(self.canvas,height=260,width=300,bg='#993333',bd=3,relief='sunken')
+        self.fm1.place(x=300,y=120)
+        
+        self.b1=Label(self.fm1,text='User ID',bg='#000000',font=('Arial',10,'bold'),fg='white')
+        self.b1.place(x=20,y=42)
+
+        self.e1=Entry(self.fm1,width=22,font=('arial',9,'bold'),bd=4,relief='groove')
+        self.e1.place(x=100,y=40)
+
+        self.lb2=Label(self.fm1,text='Password',bg='#000000',font=('Arial',10,'bold'),fg='white')
+        self.lb2.place(x=20,y=102)
+
+        self.e2=Entry(self.fm1,width=22,show='*',font=('arial',9,'bold'),bd=4,relief='groove')
+        self.e2.place(x=100,y=100)
+        
+        self.btn1=Button(self.fm1,text='  Login',fg='#000000',bg='#ffcc00',width=100,font=('Arial',11,'bold'),activebackground='#000000',activeforeground='#ffcc00',command=self.login,bd=3,relief='flat',cursor='hand2')
+        self.btn1.place(x=25,y=160)
+        self.logo = PhotoImage(file=r"images/bt1.png")
+        self.btn1.config(image=self.logo, compound=LEFT)
+        self.small_logo = self.logo.subsample(1, 1)
+        self.btn1.config(image=self.small_logo)
+
+
+        self.btn2=Button(self.fm1,text='  Clear',fg='#000000',bg='#ffcc00',width=100,font=('Arial',11,'bold'),activebackground='#000000',activeforeground='#ffcc00',bd=3,relief='flat',cursor='hand2',command=self.mainclear)
+        self.btn2.place(x=155,y=160)
+        self.log = PhotoImage(file=r"images/bt2.png")
+        self.btn2.config(image=self.log, compound=LEFT)
+        self.small_log = self.log.subsample(1, 1)
+        self.btn2.config(image=self.small_log)
+        
+        self.forgot=Label(self.fm1,text='Forgot Password?',fg='White',bg='#000000',activeforeground='#000000',font=('cursive',9,'bold'))
+        self.forgot.place(x=80,y=220)
+        self.forgot.bind("<Button>",self.mouseClick)
+
+        root.mainloop()
+    
+    # clear login creadentials
+    def mainclear(self):
+        self.e1.delete(0,END)
+        self.e2.delete(0,END)
+    
+    # forgot password functionality     
+    def mouseClick(self,event):
+        self.rog=Tk()
+        self.rog.title("Change password")
+        self.rog.geometry("400x300+300+210")
+        self.rog.iconbitmap("images/afterlogin1.ico")
+        self.rog.resizable(0,0)
+        self.rog.configure(bg='#000000')
+
+        self.framerog=Frame(self.rog,width=160,height=30,bg="#d6ed17")
+        self.framerog.place(x=95,y=15)
+
+        self.label=Label(self.framerog,text="SET NEW PASSWORD",bg='#d6ed17',fg='#606060',font=("Calibri",12,'bold'))
+        self.label.place(x=5,y=4)
+
+        self.user=Label(self.rog,text='User ID',bg='#000',fg='white',font=("Times New Roman",11,'bold'))
+        self.user.place(x=40,y=95)
+
+        self.user = Label(self.rog, text='New Password',bg='#000', fg='white', font=("Times New Roman", 11, 'bold'))
+        self.user.place(x=40, y=170)
+
+        self.ef1 = Entry(self.rog, width=24, font=('Calibri', 8, 'bold'), bd=4, relief='groove')
+        self.ef1.place(x=170, y=95)
+
+        self.ef2 = Entry(self.rog, width=24, font=('Calibri', 8, 'bold'), bd=4, relief='groove')
+        self.ef2.place(x=170, y=170)
+
+        self.btn1 = Button(self.rog, text='SUBMIT', fg='#606060', bg='#d6ed17', width=8, font=('Calibri', 12, 'bold'),activebackground='#000000', activeforeground='#d6ed17',bd=3, relief='flat',cursor='hand2',command=self.chan_pas)
+        self.btn1.place(x=40, y=240)
+    
+    # update or change password functionality
+    def chan_pas(self):
+        self.a=self.ef1.get()
+        self.b=self.ef2.get()
+
+        import sqlite3
+        conn=sqlite3.connect('admin.db')
+
+        # run SQL query
+        cursor=conn.cursor()
+        cursor.execute("SELECT * FROM UserLogin WHERE UserID='"+self.a+"'")
+        conn.commit()
+        self.data=cursor.fetchone()
+
+        if self.data!=None:
+
+            # run SQL query
+            cursor = conn.cursor()
+            cursor.execute("UPDATE UserLogin SET Password='" + self.b + "' WHERE UserID='" + self.a + "'")
+            conn.commit()
+
+            messagebox.showinfo("SUCCESSFUL","Your Password is changed")
+            self.rog.destroy()
+        else:
+            messagebox.showerror("ERROR", "UserID doesn't exist")
+            self.rog.destroy()
+                
+        self.rog.mainloop()
+
     # login functionality
     def login(self):
         # getting user inputs: User ID and Password
@@ -118,11 +231,11 @@ class main:
         self.canvas8.create_image(0,0,image=self.photo9,anchor=NW)
         
         # show developer credits in footnote
-        self.develop=Label(self.fm3,text='Developed By - Group 1',bg='#fff',fg='#d7837f', font=('Candara',12,'bold'))
+        self.develop=Label(self.fm3,text='Developed By - Group 1',bg='#ffffff',fg='#d7837f', font=('Candara',12,'bold'))
         self.develop.place(x=732,y=350)
         
         
-        self.bt1=Button(self.fm3,text='  Add Books',fg='#fff',bg='#641b4e',font=('Candara',15,'bold'),width=170,height=0,bd=7,relief='flat',command=self.addbook,cursor='hand2',activebackground='#000000',activeforeground='#641b4e')
+        self.bt1=Button(self.fm3,text='  Add Books', bg='#641b4e', fg='#ffffff',font=('Candara',15,'bold'),width=170,height=0,bd=7,relief='flat',command=self.addbook,cursor='hand2',activebackground='#000000',activeforeground='#641b4e')
         self.bt1.place(x=40,y=40)
         self.logo = PhotoImage(file='images/bt1.png')
         self.bt1.config(image=self.logo, compound=LEFT)
@@ -130,7 +243,7 @@ class main:
         self.bt1.config(image=self.small_logo)
         
         
-        self.bt2 = Button(self.fm3, text='  Issue Books', fg='#fff', bg='#641b4e', font=('Candara', 15, 'bold'),width=170,height=0, bd=7,relief='flat',command=self.issuebook,cursor='hand2',activebackground='#000000',activeforeground='#641b4e')
+        self.bt2 = Button(self.fm3, text='  Issue Books', fg='#ffffff', bg='#641b4e', font=('Candara', 15, 'bold'),width=170,height=0, bd=7,relief='flat',command=self.issuebook,cursor='hand2',activebackground='#000000',activeforeground='#641b4e')
         self.bt2.place(x=250, y=40)
         self.log = PhotoImage(file='images/bt2.png')
         self.bt2.config(image=self.log, compound=LEFT)
@@ -138,7 +251,7 @@ class main:
         self.bt2.config(image=self.small_log)
             
              
-        self.bt3 = Button(self.fm3, text='  Edit Books', fg='#fff', bg='#641b4e', font=('Candara', 15, 'bold'),width=170,height=0,bd=7,relief='flat',cursor='hand2',command=self.edit,activebackground='#000000',activeforeground='#641b4e')
+        self.bt3 = Button(self.fm3, text='  Edit Books', fg='#ffffff', bg='#641b4e', font=('Candara', 15, 'bold'),width=170,height=0,bd=7,relief='flat',cursor='hand2',command=self.edit,activebackground='#000000',activeforeground='#641b4e')
         self.bt3.place(x=40, y=120)
         self.logb = PhotoImage(file='images/bt3.png')
         self.bt3.config(image=self.logb, compound=LEFT)
@@ -146,7 +259,7 @@ class main:
         self.bt3.config(image=self.small_logb)
              
              
-        self.bt4 = Button(self.fm3, text='  Return Books', fg='#fff', bg='#641b4e', font=('Candara', 15, 'bold'),width=170,height=0,bd=7,relief='flat',cursor='hand2',command=self.returnbook,activebackground='#000000',activeforeground='#641b4e')
+        self.bt4 = Button(self.fm3, text='  Return Books', fg='#ffffff', bg='#641b4e', font=('Candara', 15, 'bold'),width=170,height=0,bd=7,relief='flat',cursor='hand2',command=self.returnbook,activebackground='#000000',activeforeground='#641b4e')
         self.bt4.place(x=250, y=120)
         self.log4 = PhotoImage(file='images/bt4.png')
         self.bt4.config(image=self.log4, compound=LEFT)
@@ -154,7 +267,7 @@ class main:
         self.bt4.config(image=self.small_log4)
              
              
-        self.bt5 = Button(self.fm3, text=' Delete Books', fg='#fff', bg='#641b4e', font=('Candara', 15, 'bold'),width=170,height=0,bd=7,relief='flat',cursor='hand2',command=self.delete,activebackground='#000000',activeforeground='#641b4e')
+        self.bt5 = Button(self.fm3, text=' Delete Books', fg='#ffffff', bg='#641b4e', font=('Candara', 15, 'bold'),width=170,height=0,bd=7,relief='flat',cursor='hand2',command=self.delete,activebackground='#000000',activeforeground='#641b4e')
         self.bt5.place(x=40, y=200)
         self.log5 = PhotoImage(file='images/bt5.png')
         self.bt5.config(image=self.log5, compound=LEFT)
@@ -162,14 +275,14 @@ class main:
         self.bt5.config(image=self.small_log5)
  
  
-        self.bt6 = Button(self.fm3, text=' Show Books', fg='#fff', bg='#641b4e', font=('Candara', 15, 'bold'),width=170,height=0,bd=7, relief='flat',cursor='hand2',command=self.show,activebackground='#000000',activeforeground='#641b4e')
+        self.bt6 = Button(self.fm3, text=' Show Books', fg='#ffffff', bg='#641b4e', font=('Candara', 15, 'bold'),width=170,height=0,bd=7, relief='flat',cursor='hand2',command=self.show,activebackground='#000000',activeforeground='#641b4e')
         self.bt6.place(x=40, y=280)
         self.log6 = PhotoImage(file='images/bt6.png')
         self.bt6.config(image=self.log6, compound=LEFT)
         self.small_log6 = self.log6.subsample(1, 1)
         self.bt6.config(image=self.small_log6)
     
-        self.bt7 = Button(self.fm3, text='  Search Books', fg='#fff', bg='#641b4e', font=('Candara', 15, 'bold'),width=170,height=0,bd=7, relief='flat',cursor='hand2',command=self.search,activebackground='#000000',activeforeground='#641b4e')
+        self.bt7 = Button(self.fm3, text='  Search Books', fg='#ffffff', bg='#641b4e', font=('Candara', 15, 'bold'),width=170,height=0,bd=7, relief='flat',cursor='hand2',command=self.search,activebackground='#000000',activeforeground='#641b4e')
         self.bt7.place(x=250, y=200)
         self.log7 = PhotoImage(file='images/bt7.png')
         self.bt7.config(image=self.log7, compound=LEFT)
@@ -177,7 +290,7 @@ class main:
         self.bt7.config(image=self.small_log7)
         
         try:
-            self.bt8 = Button(self.fm3, text='  Log Out', fg='#fff', bg='#641b4e', font=('Candara', 15, 'bold'),width=170,height=0, bd=7, relief='flat',cursor='hand2',command=self.code,activebackground='#000000',activeforeground='#641b4e')
+            self.bt8 = Button(self.fm3, text='  Log Out', fg='#ffffff', bg='#641b4e', font=('Candara', 15, 'bold'),width=170,height=0, bd=7, relief='flat',cursor='hand2',command=self.code,activebackground='#000000',activeforeground='#641b4e')
             self.bt8.place(x=250, y=280)
             self.log8 = PhotoImage(file='images/bt8.png')
             self.bt8.config(image=self.log8, compound=LEFT)
@@ -936,122 +1049,7 @@ class main:
                                 self.book_table.insert('',END,values=self.row)
                 dbstore.commit()
                 
-        oc=test()
-    
-    # clear login creadentials
-    def mainclear(self):
-        self.e1.delete(0,END)
-        self.e2.delete(0,END)
-        
-    
-    # start page functionality
-    def code(self):
-
-        self.fm=Frame(root,height=500,width=900,bg='white')
-        self.fm.place(x=0,y=0)
-
-        self.canvas=Canvas(self.fm,height=500,width=900,bg='#000000')
-        self.canvas.place(x=0,y=0)
-
-        # image in backdrop of login page
-        self.photo=PhotoImage(file=r"images/library-background.png")
-        self.canvas.create_image(0,0,image=self.photo,anchor=NW)
-
-        self.fm1=Frame(self.canvas,height=260,width=300,bg='#993333',bd=3,relief='sunken')
-        self.fm1.place(x=300,y=120)
-        
-        self.b1=Label(self.fm1,text='User ID',bg='#000000',font=('Arial',10,'bold'),fg='white')
-        self.b1.place(x=20,y=42)
-
-        self.e1=Entry(self.fm1,width=22,font=('arial',9,'bold'),bd=4,relief='groove')
-        self.e1.place(x=100,y=40)
-
-        self.lb2=Label(self.fm1,text='Password',bg='#000000',font=('Arial',10,'bold'),fg='white')
-        self.lb2.place(x=20,y=102)
-
-        self.e2=Entry(self.fm1,width=22,show='*',font=('arial',9,'bold'),bd=4,relief='groove')
-        self.e2.place(x=100,y=100)
-        
-        self.btn1=Button(self.fm1,text='  Login',fg='#000000',bg='#ffcc00',width=100,font=('Arial',11,'bold'),activebackground='#000000',activeforeground='#ffcc00',command=self.login,bd=3,relief='flat',cursor='hand2')
-        self.btn1.place(x=25,y=160)
-        self.logo = PhotoImage(file=r"images/bt1.png")
-        self.btn1.config(image=self.logo, compound=LEFT)
-        self.small_logo = self.logo.subsample(1, 1)
-        self.btn1.config(image=self.small_logo)
-
-
-        self.btn2=Button(self.fm1,text='  Clear',fg='#000000',bg='#ffcc00',width=100,font=('Arial',11,'bold'),activebackground='#000000',activeforeground='#ffcc00',bd=3,relief='flat',cursor='hand2',command=self.mainclear)
-        self.btn2.place(x=155,y=160)
-        self.log = PhotoImage(file=r"images/bt2.png")
-        self.btn2.config(image=self.log, compound=LEFT)
-        self.small_log = self.log.subsample(1, 1)
-        self.btn2.config(image=self.small_log)
-        
-        self.forgot=Label(self.fm1,text='Forgot Password?',fg='White',bg='#000000',activeforeground='#000000',font=('cursive',9,'bold'))
-        self.forgot.place(x=80,y=220)
-        self.forgot.bind("<Button>",self.mouseClick)
-
-        root.mainloop()
-
-    # forgot password functionality        
-    def mouseClick(self,event):
-        self.rog=Tk()
-        self.rog.title("Change password")
-        self.rog.geometry("400x300+300+210")
-        self.rog.iconbitmap("images/afterlogin1.ico")
-        self.rog.resizable(0,0)
-        self.rog.configure(bg='#000000')
-
-        self.framerog=Frame(self.rog,width=160,height=30,bg="#d6ed17")
-        self.framerog.place(x=95,y=15)
-
-        self.label=Label(self.framerog,text="SET NEW PASSWORD",bg='#d6ed17',fg='#606060',font=("Calibri",12,'bold'))
-        self.label.place(x=5,y=4)
-
-        self.user=Label(self.rog,text='User ID',bg='#000',fg='white',font=("Times New Roman",11,'bold'))
-        self.user.place(x=40,y=95)
-
-        self.user = Label(self.rog, text='New Password',bg='#000', fg='white', font=("Times New Roman", 11, 'bold'))
-        self.user.place(x=40, y=170)
-
-        self.ef1 = Entry(self.rog, width=24, font=('Calibri', 8, 'bold'), bd=4, relief='groove')
-        self.ef1.place(x=170, y=95)
-
-        self.ef2 = Entry(self.rog, width=24, font=('Calibri', 8, 'bold'), bd=4, relief='groove')
-        self.ef2.place(x=170, y=170)
-
-        self.btn1 = Button(self.rog, text='SUBMIT', fg='#606060', bg='#d6ed17', width=8, font=('Calibri', 12, 'bold'),activebackground='#000000', activeforeground='#d6ed17',bd=3, relief='flat',cursor='hand2',command=self.chan_pas)
-        self.btn1.place(x=40, y=240)
-    
-    # update or change password functionality
-    def chan_pas(self):
-        self.a=self.ef1.get()
-        self.b=self.ef2.get()
-
-        import sqlite3
-        conn=sqlite3.connect('admin.db')
-
-        # run SQL query
-        cursor=conn.cursor()
-        cursor.execute("SELECT * FROM UserLogin WHERE UserID='"+self.a+"'")
-        conn.commit()
-        self.data=cursor.fetchone()
-
-        if self.data!=None:
-
-            # run SQL query
-            cursor = conn.cursor()
-            cursor.execute("UPDATE UserLogin SET Password='" + self.b + "' WHERE UserID='" + self.a + "'")
-            conn.commit()
-
-            messagebox.showinfo("SUCCESSFUL","Your Password is changed")
-            self.rog.destroy()
-        else:
-            messagebox.showerror("ERROR", "UserID doesn't exist")
-            self.rog.destroy()
-                
-        self.rog.mainloop()
-                                                                                
+        oc=test()                                                           
 
 obj=main()
 obj.code()
