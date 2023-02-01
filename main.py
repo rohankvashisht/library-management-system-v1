@@ -30,6 +30,7 @@ root.iconbitmap('images/aa.ico')
 root.geometry("900x500+50+100")
 root.resizable(0, 0)
 
+# main class
 class main:
 
     # start page functionality
@@ -76,7 +77,7 @@ class main:
         self.btn2.config(image=self.small_log)
         
         self.forgot=Label(self.fm1,text='Forgot Password?', bg='#993333', fg='#ffffff',activeforeground='#000000',font=('cursive',12,'bold'))
-        self.forgot.place(x=80,y=220)
+        self.forgot.place(x=90,y=220)
         self.forgot.bind("<Button>",self.mouseClick)
 
         root.mainloop()
@@ -231,11 +232,11 @@ class main:
         self.canvas8.create_image(0,0,image=self.photo9,anchor=NW)
         
         # show developer credits in footnote
-        self.develop=Label(self.fm3,text='Developed By - Group 1',bg='#ffffff',fg='#d7837f', font=('Candara',12,'bold'))
+        self.develop=Label(self.fm3,text='Developed By - Group 1',bg='#ffffff',fg='#993333', font=('Candara',12,'bold'))
         self.develop.place(x=732,y=350)
         
         
-        self.bt1=Button(self.fm3,text='  Add Books', bg='#641b4e', fg='#000000',font=('Candara',15,'bold'),width=170,height=0,bd=7,relief='flat',command=self.addbook,cursor='hand2',activebackground='#000000',activeforeground='#641b4e')
+        self.bt1=Button(self.fm3,text='  Add Books', bg='#993333', fg='#000000',font=('Candara',15,'bold'),width=170,height=0,bd=7,relief='flat',command=self.addbook,cursor='hand2',activebackground='#000000',activeforeground='#993333')
         self.bt1.place(x=40,y=40)
         self.logo = PhotoImage(file='images/bt1.png')
         self.bt1.config(image=self.logo, compound=LEFT)
@@ -243,7 +244,7 @@ class main:
         self.bt1.config(image=self.small_logo)
         
         
-        self.bt2 = Button(self.fm3, text='  Issue Books', bg='#641b4e', fg='#000000', font=('Candara', 15, 'bold'),width=170,height=0, bd=7,relief='flat',command=self.issuebook,cursor='hand2',activebackground='#000000',activeforeground='#641b4e')
+        self.bt2 = Button(self.fm3, text='  Issue Books', bg='#993333', fg='#000000', font=('Candara', 15, 'bold'),width=170,height=0, bd=7,relief='flat',command=self.issuebook,cursor='hand2',activebackground='#000000',activeforeground='#993333')
         self.bt2.place(x=250, y=40)
         self.log = PhotoImage(file='images/bt2.png')
         self.bt2.config(image=self.log, compound=LEFT)
@@ -251,7 +252,7 @@ class main:
         self.bt2.config(image=self.small_log)
             
              
-        self.bt3 = Button(self.fm3, text='  Edit Books', bg='#641b4e', fg='#000000', font=('Candara', 15, 'bold'),width=170,height=0,bd=7,relief='flat',cursor='hand2',command=self.edit,activebackground='#000000',activeforeground='#641b4e')
+        self.bt3 = Button(self.fm3, text='  Edit Books', bg='#993333', fg='#000000', font=('Candara', 15, 'bold'),width=170,height=0,bd=7,relief='flat',cursor='hand2',command=self.edit,activebackground='#000000',activeforeground='#993333')
         self.bt3.place(x=40, y=120)
         self.logb = PhotoImage(file='images/bt3.png')
         self.bt3.config(image=self.logb, compound=LEFT)
@@ -259,7 +260,7 @@ class main:
         self.bt3.config(image=self.small_logb)
              
              
-        self.bt4 = Button(self.fm3, text='  Return Books', bg='#641b4e', fg='#000000', font=('Candara', 15, 'bold'),width=170,height=0,bd=7,relief='flat',cursor='hand2',command=self.returnbook,activebackground='#000000',activeforeground='#641b4e')
+        self.bt4 = Button(self.fm3, text='  Return Books', bg='#993333', fg='#000000', font=('Candara', 15, 'bold'),width=170,height=0,bd=7,relief='flat',cursor='hand2',command=self.returnbook,activebackground='#000000',activeforeground='#993333')
         self.bt4.place(x=250, y=120)
         self.log4 = PhotoImage(file='images/bt4.png')
         self.bt4.config(image=self.log4, compound=LEFT)
@@ -267,7 +268,7 @@ class main:
         self.bt4.config(image=self.small_log4)
              
              
-        self.bt5 = Button(self.fm3, text=' Delete Books', bg='#641b4e', fg='#000000', font=('Candara', 15, 'bold'),width=170,height=0,bd=7,relief='flat',cursor='hand2',command=self.delete,activebackground='#000000',activeforeground='#641b4e')
+        self.bt5 = Button(self.fm3, text=' Delete Books', bg='#993333', fg='#000000', font=('Candara', 15, 'bold'),width=170,height=0,bd=7,relief='flat',cursor='hand2',command=self.delete,activebackground='#000000',activeforeground='#993333')
         self.bt5.place(x=40, y=200)
         self.log5 = PhotoImage(file='images/bt5.png')
         self.bt5.config(image=self.log5, compound=LEFT)
@@ -275,14 +276,14 @@ class main:
         self.bt5.config(image=self.small_log5)
  
  
-        self.bt6 = Button(self.fm3, text=' Show Books', bg='#641b4e', fg='#000000', font=('Candara', 15, 'bold'),width=170,height=0,bd=7, relief='flat',cursor='hand2',command=self.show,activebackground='#000000',activeforeground='#641b4e')
+        self.bt6 = Button(self.fm3, text=' Show Books', bg='#993333', fg='#000000', font=('Candara', 15, 'bold'),width=170,height=0,bd=7, relief='flat',cursor='hand2',command=self.show,activebackground='#000000',activeforeground='#993333')
         self.bt6.place(x=40, y=280)
         self.log6 = PhotoImage(file='images/bt6.png')
         self.bt6.config(image=self.log6, compound=LEFT)
         self.small_log6 = self.log6.subsample(1, 1)
         self.bt6.config(image=self.small_log6)
     
-        self.bt7 = Button(self.fm3, text='  Search Books', bg='#641b4e', fg='#000000', font=('Candara', 15, 'bold'),width=170,height=0,bd=7, relief='flat',cursor='hand2',command=self.search,activebackground='#000000',activeforeground='#641b4e')
+        self.bt7 = Button(self.fm3, text='  Search Books', bg='#993333', fg='#000000', font=('Candara', 15, 'bold'),width=170,height=0,bd=7, relief='flat',cursor='hand2',command=self.search,activebackground='#000000',activeforeground='#993333')
         self.bt7.place(x=250, y=200)
         self.log7 = PhotoImage(file='images/bt7.png')
         self.bt7.config(image=self.log7, compound=LEFT)
@@ -290,7 +291,7 @@ class main:
         self.bt7.config(image=self.small_log7)
         
         try:
-            self.bt8 = Button(self.fm3, text='  Log Out', bg='#641b4e', fg='#000000', font=('Candara', 15, 'bold'),width=170,height=0, bd=7, relief='flat',cursor='hand2',command=self.code,activebackground='#000000',activeforeground='#641b4e')
+            self.bt8 = Button(self.fm3, text='  Log Out', bg='#993333', fg='#000000', font=('Candara', 15, 'bold'),width=170,height=0, bd=7, relief='flat',cursor='hand2',command=self.code,activebackground='#000000',activeforeground='#993333')
             self.bt8.place(x=250, y=280)
             self.log8 = PhotoImage(file='images/bt8.png')
             self.bt8.config(image=self.log8, compound=LEFT)
@@ -307,6 +308,8 @@ class main:
 
     # add book functionality     
     def addbook(self):
+
+        # temp class
         class temp(main):
             def book(self):
 
