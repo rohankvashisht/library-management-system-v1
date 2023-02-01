@@ -31,6 +31,7 @@ root.geometry("900x500+50+100")
 root.resizable(0, 0)
 
 class main:
+
     # login functionality
     def login(self):
         # getting user inputs: User ID and Password
@@ -48,29 +49,29 @@ class main:
             self.under_fm=Frame(root,height=500,width=900,bg='#ffffff')
             self.under_fm.place(x=0,y=0)
             
-            self.fm2=Frame(root,bg='#012727',height=80,width=900)
+            self.fm2=Frame(root,bg='#0039e6',height=80,width=900)
             self.fm2.place(x=0,y=0)
             
             self.lbb=Label(self.fm2,bg='#012727')
             self.lbb.place(x=15,y=5)
 
-            self.ig=PhotoImage(file='images/library.png')
+            self.ig=PhotoImage(file='images/library-logo.png')
             self.lbb.config(image=self.ig)
             
-            self.lb3=Label(self.fm2,text='DASHBOARD',fg='White',bg='#012727',font=('times new roman',30,'bold'))
+            self.lb3=Label(self.fm2,text='DASHBOARD',fg='#ffcccc',bg='#641b4e',font=('times new roman',30,'bold'))
             self.lb3.place(x=325,y=17)
             
             # show user name
-            self.name=Label(root,text="Name : ",bg='#fff',fg="black",font=('Calibri',12,'bold'))
+            self.name=Label(root,text="Name : ",bg='#ffffff',fg="#000000",font=('Calibri',12,'bold'))
             self.name.place(x=5,y=83)
-            self.name1=Label(root,text=self.ab[0],fg='black',bg='#fff',font=('Calibri',12,'bold'))
+            self.name1=Label(root,text=self.ab[0],fg='#000000',bg='#ffffff',font=('Calibri',12,'bold'))
             self.name1.place(x=60,y=83)
             
             # show current date
             self.today=date.today()
-            self.dat=Label(root,text='Date : ',bg='#fff',fg='black',font=('Calibri',12,'bold'))
+            self.dat=Label(root,text='Date : ',bg='#ffffff',fg='#000000',font=('Calibri',12,'bold'))
             self.dat.place(x=750,y=83)
-            self.dat2 = Label(root, text=self.today, bg='#fff', fg='black', font=('Calibri', 12, 'bold'))
+            self.dat2 = Label(root, text=self.today, bg='#ffffff', fg='#000000', font=('Calibri', 12, 'bold'))
             self.dat2.place(x=800, y=83)
             
             self.cur()
@@ -96,20 +97,20 @@ class main:
     
             self.lb1_hr.after(200, clock)
         
-        self.lb1_hr = Label(self.fm3, text='12', font=('times new roman', 20, 'bold'), bg='#581845', fg='white')
+        self.lb1_hr = Label(self.fm3, text='12', font=('times new roman', 20, 'bold'), bg='#641b4e', fg='white')
         self.lb1_hr.place(x=607, y=0, width=60, height=30)
 
-        self.lb3_hr = Label(self.fm3, text='05', font=('times new roman', 20, 'bold'), bg='#581845', fg='white')
+        self.lb3_hr = Label(self.fm3, text='05', font=('times new roman', 20, 'bold'), bg='#641b4e', fg='white')
         self.lb3_hr.place(x=677, y=0, width=60, height=30)
         
-        self.lb5_hr = Label(self.fm3, text='37', font=('times new roman', 20, 'bold'), bg='#581845', fg='white')
+        self.lb5_hr = Label(self.fm3, text='37', font=('times new roman', 20, 'bold'), bg='#641b4e', fg='white')
         self.lb5_hr.place(x=747, y=0, width=60, height=30)
         
-        self.lb7_hr = Label(self.fm3, text='AM', font=('times new roman', 17, 'bold'), bg='#581845', fg='white')
+        self.lb7_hr = Label(self.fm3, text='AM', font=('times new roman', 17, 'bold'), bg='#641b4e', fg='white')
         self.lb7_hr.place(x=817, y=0, width=60, height=30)
         
         clock()
-        self.canvas8 = Canvas(self.fm3, bg='black', width=400, height=300)
+        self.canvas8 = Canvas(self.fm3, bg='#000000', width=400, height=300)
         self.canvas8.place(x=475, y=40)
         
         # show image on right side of dashboard
@@ -121,7 +122,7 @@ class main:
         self.develop.place(x=732,y=350)
         
         
-        self.bt1=Button(self.fm3,text='  Add Books',fg='#fff',bg='#581845',font=('Candara',15,'bold'),width=170,height=0,bd=7,relief='flat',command=self.addbook,cursor='hand2',activebackground='black',activeforeground='#581845')
+        self.bt1=Button(self.fm3,text='  Add Books',fg='#fff',bg='#641b4e',font=('Candara',15,'bold'),width=170,height=0,bd=7,relief='flat',command=self.addbook,cursor='hand2',activebackground='#000000',activeforeground='#641b4e')
         self.bt1.place(x=40,y=40)
         self.logo = PhotoImage(file='images/bt1.png')
         self.bt1.config(image=self.logo, compound=LEFT)
@@ -129,7 +130,7 @@ class main:
         self.bt1.config(image=self.small_logo)
         
         
-        self.bt2 = Button(self.fm3, text='  Issue Books', fg='#fff', bg='#581845', font=('Candara', 15, 'bold'),width=170,height=0, bd=7,relief='flat',command=self.issuebook,cursor='hand2',activebackground='black',activeforeground='#581845')
+        self.bt2 = Button(self.fm3, text='  Issue Books', fg='#fff', bg='#641b4e', font=('Candara', 15, 'bold'),width=170,height=0, bd=7,relief='flat',command=self.issuebook,cursor='hand2',activebackground='#000000',activeforeground='#641b4e')
         self.bt2.place(x=250, y=40)
         self.log = PhotoImage(file='images/bt2.png')
         self.bt2.config(image=self.log, compound=LEFT)
@@ -137,7 +138,7 @@ class main:
         self.bt2.config(image=self.small_log)
             
              
-        self.bt3 = Button(self.fm3, text='  Edit Books', fg='#fff', bg='#581845', font=('Candara', 15, 'bold'),width=170,height=0,bd=7,relief='flat',cursor='hand2',command=self.edit,activebackground='black',activeforeground='#581845')
+        self.bt3 = Button(self.fm3, text='  Edit Books', fg='#fff', bg='#641b4e', font=('Candara', 15, 'bold'),width=170,height=0,bd=7,relief='flat',cursor='hand2',command=self.edit,activebackground='#000000',activeforeground='#641b4e')
         self.bt3.place(x=40, y=120)
         self.logb = PhotoImage(file='images/bt3.png')
         self.bt3.config(image=self.logb, compound=LEFT)
@@ -145,7 +146,7 @@ class main:
         self.bt3.config(image=self.small_logb)
              
              
-        self.bt4 = Button(self.fm3, text='  Return Books', fg='#fff', bg='#581845', font=('Candara', 15, 'bold'),width=170,height=0,bd=7,relief='flat',cursor='hand2',command=self.returnbook,activebackground='black',activeforeground='#581845')
+        self.bt4 = Button(self.fm3, text='  Return Books', fg='#fff', bg='#641b4e', font=('Candara', 15, 'bold'),width=170,height=0,bd=7,relief='flat',cursor='hand2',command=self.returnbook,activebackground='#000000',activeforeground='#641b4e')
         self.bt4.place(x=250, y=120)
         self.log4 = PhotoImage(file='images/bt4.png')
         self.bt4.config(image=self.log4, compound=LEFT)
@@ -153,7 +154,7 @@ class main:
         self.bt4.config(image=self.small_log4)
              
              
-        self.bt5 = Button(self.fm3, text=' Delete Books', fg='#fff', bg='#581845', font=('Candara', 15, 'bold'),width=170,height=0,bd=7,relief='flat',cursor='hand2',command=self.delete,activebackground='black',activeforeground='#581845')
+        self.bt5 = Button(self.fm3, text=' Delete Books', fg='#fff', bg='#641b4e', font=('Candara', 15, 'bold'),width=170,height=0,bd=7,relief='flat',cursor='hand2',command=self.delete,activebackground='#000000',activeforeground='#641b4e')
         self.bt5.place(x=40, y=200)
         self.log5 = PhotoImage(file='images/bt5.png')
         self.bt5.config(image=self.log5, compound=LEFT)
@@ -161,14 +162,14 @@ class main:
         self.bt5.config(image=self.small_log5)
  
  
-        self.bt6 = Button(self.fm3, text=' Show Books', fg='#fff', bg='#581845', font=('Candara', 15, 'bold'),width=170,height=0,bd=7, relief='flat',cursor='hand2',command=self.show,activebackground='black',activeforeground='#581845')
+        self.bt6 = Button(self.fm3, text=' Show Books', fg='#fff', bg='#641b4e', font=('Candara', 15, 'bold'),width=170,height=0,bd=7, relief='flat',cursor='hand2',command=self.show,activebackground='#000000',activeforeground='#641b4e')
         self.bt6.place(x=40, y=280)
         self.log6 = PhotoImage(file='images/bt6.png')
         self.bt6.config(image=self.log6, compound=LEFT)
         self.small_log6 = self.log6.subsample(1, 1)
         self.bt6.config(image=self.small_log6)
     
-        self.bt7 = Button(self.fm3, text='  Search Books', fg='#fff', bg='#581845', font=('Candara', 15, 'bold'),width=170,height=0,bd=7, relief='flat',cursor='hand2',command=self.search,activebackground='black',activeforeground='#581845')
+        self.bt7 = Button(self.fm3, text='  Search Books', fg='#fff', bg='#641b4e', font=('Candara', 15, 'bold'),width=170,height=0,bd=7, relief='flat',cursor='hand2',command=self.search,activebackground='#000000',activeforeground='#641b4e')
         self.bt7.place(x=250, y=200)
         self.log7 = PhotoImage(file='images/bt7.png')
         self.bt7.config(image=self.log7, compound=LEFT)
@@ -176,7 +177,7 @@ class main:
         self.bt7.config(image=self.small_log7)
         
         try:
-            self.bt8 = Button(self.fm3, text='  Log Out', fg='#fff', bg='#581845', font=('Candara', 15, 'bold'),width=170,height=0, bd=7, relief='flat',cursor='hand2',command=self.code,activebackground='black',activeforeground='#581845')
+            self.bt8 = Button(self.fm3, text='  Log Out', fg='#fff', bg='#641b4e', font=('Candara', 15, 'bold'),width=170,height=0, bd=7, relief='flat',cursor='hand2',command=self.code,activebackground='#000000',activeforeground='#641b4e')
             self.bt8.place(x=250, y=280)
             self.log8 = PhotoImage(file='images/bt8.png')
             self.bt8.config(image=self.log8, compound=LEFT)
@@ -202,7 +203,7 @@ class main:
                 self.fm1=Frame(self.fm,bg='#ffe8ec',width=500,height=360,bd=5,relief='flat')
                 self.fm1.place(x=200,y=15)
                 
-                self.backbt = Button(self.fm, width=60, bg='#ffe8ec', bd=0, relief='flat',command=self.cur,activeforeground='black',activebackground='#ffe8ec')
+                self.backbt = Button(self.fm, width=60, bg='#ffe8ec', bd=0, relief='flat',command=self.cur,activeforeground='#000000',activebackground='#ffe8ec')
 
                 self.backbt.place(x=2, y=7)
                 self.log = PhotoImage(file='images/backbtn1.png')
@@ -217,15 +218,15 @@ class main:
                 # self.ll.config(height=5)
                 self.ll.place(x=0,y=8)
                         
-                self.lb=Label(self.fm1,text='ID',fg='black',bg='#ffe8ec',font=('times new roman',11,'bold'))
+                self.lb=Label(self.fm1,text='ID',fg='#000000',bg='#ffe8ec',font=('times new roman',11,'bold'))
                 self.lb.place(x=70,y=90)
-                self.lb2 = Label(self.fm1, text='Title', fg='black', bg='#ffe8ec', font=('times new roman', 11, 'bold'))
+                self.lb2 = Label(self.fm1, text='Title', fg='#000000', bg='#ffe8ec', font=('times new roman', 11, 'bold'))
                 self.lb2.place(x=70, y=130)
-                self.lb3 = Label(self.fm1, text='Author', fg='black', bg='#ffe8ec', font=('times new roman', 11, 'bold'))
+                self.lb3 = Label(self.fm1, text='Author', fg='#000000', bg='#ffe8ec', font=('times new roman', 11, 'bold'))
                 self.lb3.place(x=70, y=170)
-                self.lb4= Label(self.fm1, text='Edition', fg='black', bg='#ffe8ec', font=('times new roman', 11, 'bold'))
+                self.lb4= Label(self.fm1, text='Edition', fg='#000000', bg='#ffe8ec', font=('times new roman', 11, 'bold'))
                 self.lb4.place(x=70, y=210)
-                self.lb5 = Label(self.fm1, text='Price', fg='black', bg='#ffe8ec', font=('times new roman', 11, 'bold'))
+                self.lb5 = Label(self.fm1, text='Price', fg='#000000', bg='#ffe8ec', font=('times new roman', 11, 'bold'))
                 self.lb5.place(x=70, y=250)
         
                 self.ee1=Entry(self.fm1,width=25,bd=4,relief='groove',font=('Calibri',11,'bold'))
@@ -239,7 +240,7 @@ class main:
                 self.ee5=Entry(self.fm1,width=25,bd=4,relief='groove',font=('Calibri',11,'bold'))
                 self.ee5.place(x=180,y=250)
 
-                self.bt=Button(self.fm1,text='SUBMIT',width=8,fg='white',bg='#ff6690',font=('Canara',12,'bold'),bd=3,relief='flat',command=self.submit1,activebackground='black',activeforeground='#ff6690')
+                self.bt=Button(self.fm1,text='SUBMIT',width=8,fg='white',bg='#ff6690',font=('Canara',12,'bold'),bd=3,relief='flat',command=self.submit1,activebackground='#000000',activeforeground='#ff6690')
                 self.bt.place(x=70,y=300)
             
             def submit1(self):
@@ -298,7 +299,7 @@ class main:
                 self.lc=Label(self.ffbll,text='STUDENT  INFORMATION',bg='#00203f',fg='#adefd1',font=('Arial',12,'bold'))
                 self.lc.place(x=0,y=6)
                 
-                self.lb = Label(self.fc, text='ERP ID', bg='#ffe8ec', fg='black', font=('times new roman', 11, 'bold'))
+                self.lb = Label(self.fc, text='ERP ID', bg='#ffe8ec', fg='#000000', font=('times new roman', 11, 'bold'))
                 self.lb.place(x=15, y=90)
                 self.em2 = Entry(self.fc, width=30, bd=5, relief='ridge', font=('Arial', 8, 'bold'))
                 self.em2.place(x=105, y=90)
@@ -323,21 +324,21 @@ class main:
                 if self.var!=None:
                     self.fmii=Canvas(self.f,bg='#ffe8ec',width=338,height=90,bd=0,relief='flat')
                     self.fmii.place(x=70,y=255)
-                    self.lb1=Label(self.fmii,text='Name :',fg='black',bg ='#ffe8ec',font=('Calibri',12,'bold'))
+                    self.lb1=Label(self.fmii,text='Name :',fg='#000000',bg ='#ffe8ec',font=('Calibri',12,'bold'))
                     self.lb1.place(x=5,y=5)
-                    self.lb2 = Label(self.fmii, text=self.var[1],fg='black',bg ='#ffe8ec', font=('Calibri', 12, 'bold'))
+                    self.lb2 = Label(self.fmii, text=self.var[1],fg='#000000',bg ='#ffe8ec', font=('Calibri', 12, 'bold'))
                     self.lb2.place(x=70, y=5)
-                    self.lb3 = Label(self.fmii, text='Course :',fg='black',bg ='#ffe8ec', font=('Calibri', 12, 'bold'))
+                    self.lb3 = Label(self.fmii, text='Course :',fg='#000000',bg ='#ffe8ec', font=('Calibri', 12, 'bold'))
                     self.lb3.place(x=5, y=25)
-                    self.lb4 = Label(self.fmii, text=self.var[2],fg='black',bg ='#ffe8ec', font=('Calibri', 12, 'bold'))
+                    self.lb4 = Label(self.fmii, text=self.var[2],fg='#000000',bg ='#ffe8ec', font=('Calibri', 12, 'bold'))
                     self.lb4.place(x=70, y=25)
-                    self.lb5 = Label(self.fmii, text='Year :', fg='black',bg ='#ffe8ec', font=('Calibri', 12, 'bold'))
+                    self.lb5 = Label(self.fmii, text='Year :', fg='#000000',bg ='#ffe8ec', font=('Calibri', 12, 'bold'))
                     self.lb5.place(x=5, y=45)
-                    self.lb6 = Label(self.fmii, text=self.var[3], fg='black',bg ='#ffe8ec', font=('Calibri', 12, 'bold'))
+                    self.lb6 = Label(self.fmii, text=self.var[3], fg='#000000',bg ='#ffe8ec', font=('Calibri', 12, 'bold'))
                     self.lb6.place(x=70, y=45)
-                    self.lb7 = Label(self.fmii, text='Contact :', fg='black',bg ='#ffe8ec', font=('Calibri', 12, 'bold'))
+                    self.lb7 = Label(self.fmii, text='Contact :', fg='#000000',bg ='#ffe8ec', font=('Calibri', 12, 'bold'))
                     self.lb7.place(x=5, y=65)
-                    self.lb8 = Label(self.fmii, text=self.var[6],fg='black',bg ='#ffe8ec', font=('Calibri', 12, 'bold'))
+                    self.lb8 = Label(self.fmii, text=self.var[6],fg='#000000',bg ='#ffe8ec', font=('Calibri', 12, 'bold'))
                     self.lb8.place(x=70, y=65)
                     
                     self.fr=Frame(self.fmi,bg='#ffe8ec',bd=5,relief='flat',width=338,height=250)
@@ -403,23 +404,23 @@ class main:
                         self.boot.resizable(0,0)
                         test.repeat=1
                         
-                        self.lb=Label(self.boot,text='Title:',bg='#ffe8ec',fg='black',font=('Calibri',12,'bold'))
+                        self.lb=Label(self.boot,text='Title:',bg='#ffe8ec',fg='#000000',font=('Calibri',12,'bold'))
                         self.lb.place(x=30,y=30)
-                        self.lbn = Label(self.boot, text=self.value[1], bg='#ffe8ec', fg='black', font=('Calibri', 12, 'bold'))
+                        self.lbn = Label(self.boot, text=self.value[1], bg='#ffe8ec', fg='#000000', font=('Calibri', 12, 'bold'))
                         self.lbn.place(x=120,y=30)
-                        self.lb = Label(self.boot, text='Author:', bg='#ffe8ec', fg='black', font=('Calibri', 12,'bold'))
+                        self.lb = Label(self.boot, text='Author:', bg='#ffe8ec', fg='#000000', font=('Calibri', 12,'bold'))
                         
                         self.lb.place(x=30, y=60)
-                        self.lbn = Label(self.boot, text=self.value[2], bg='#ffe8ec', fg='black', font=('Calibri', 12,'bold'))
+                        self.lbn = Label(self.boot, text=self.value[2], bg='#ffe8ec', fg='#000000', font=('Calibri', 12,'bold'))
                         
                         self.lbn.place(x=120, y=60)
-                        self.lb = Label(self.boot, text='Edition:', bg='#ffe8ec', fg='black', font=('Calibri', 12,'bold'))
+                        self.lb = Label(self.boot, text='Edition:', bg='#ffe8ec', fg='#000000', font=('Calibri', 12,'bold'))
                         
                         self.lb.place(x=30, y=90)
-                        self.lbn = Label(self.boot, text=self.value[3], bg='#ffe8ec', fg='black', font=('Calibri', 12,'bold'))
+                        self.lbn = Label(self.boot, text=self.value[3], bg='#ffe8ec', fg='#000000', font=('Calibri', 12,'bold'))
                         self.lbn.place(x=120, y=90)
                         
-                        self.label = Label(self.fr, text='ADD MORE BOOKS ', bg='#ffe8ec', fg='black', font=('times new romman', 11,'bold'))
+                        self.label = Label(self.fr, text='ADD MORE BOOKS ', bg='#ffe8ec', fg='#000000', font=('times new romman', 11,'bold'))
                         self.label.place(x=15, y=220)
                         
                         self.it1=Radiobutton(self.fr,text='YES',bg='#ffe8ec',variable='radio',value=1,command=self.yes)
@@ -436,10 +437,10 @@ class main:
                         
                         self.x = date.today()
 
-                        self.cal = Calendar(self.boot, selectmode="day", bg='black',year=2022,month=3,day=30)
+                        self.cal = Calendar(self.boot, selectmode="day", bg='#000000',year=2022,month=3,day=30)
                         self.cal.place(x=20,y=150)
                 
-                        btn1 = Button(self.boot, text="CONFIRM DATE",command=self.get_data,  bg='#343148',font=('Canara', 11,'bold'),fg='#d7c49e',activebackground='black', activeforeground='#d7c49e', relief='flat')
+                        btn1 = Button(self.boot, text="CONFIRM DATE",command=self.get_data,  bg='#343148',font=('Canara', 11,'bold'),fg='#d7c49e',activebackground='#000000', activeforeground='#d7c49e', relief='flat')
                         btn1.place(x=90,y=350)
                         
                         self.boot.mainloop()
@@ -534,7 +535,7 @@ class main:
                 self.ed.place(x=170,y=0)
                 self.lab = Label(self.ed, text='EDIT BOOK DETAILS', bg='#1c1c1b', fg='#ce4a7e', font=('Calibri', 12,'bold'))
                 self.lab.place(x=9, y=5)
-                self.label3=Label(self.fm1,text='Book ID',bg='#ffe8ec',fg='black',font=('Times New Roman',11,'bold'))
+                self.label3=Label(self.fm1,text='Book ID',bg='#ffe8ec',fg='#000000',font=('Times New Roman',11,'bold'))
                 self.label3.place(x=85,y=65)
                 self.entry=Entry(self.fm1,width=30,bd=4,relief='groove',font=('Calibri',8,'bold'))
                 self.entry.place(x=188,y=65)
@@ -568,19 +569,19 @@ class main:
                     self.lab=Label(self.fc,bg='#1c1c1b',fg='#ce4a7e',text='EDIT BOOK',font=('Calibri',12,'bold'))
                     self.lab.place(x=3,y=3)
                     
-                    self.labid = Label(self.edcat, bg='#ffe8ec', fg='black', text='Book ID:', font=('Calibri', 12,'bold'))
+                    self.labid = Label(self.edcat, bg='#ffe8ec', fg='#000000', text='Book ID:', font=('Calibri', 12,'bold'))
                                                                                             
                     self.labid.place(x=30, y=60)
-                    self.labti = Label(self.edcat, bg='#ffe8ec', fg='black', text='Title:', font=('Calibri', 12, 'bold'))
+                    self.labti = Label(self.edcat, bg='#ffe8ec', fg='#000000', text='Title:', font=('Calibri', 12, 'bold'))
     
                     self.labti.place(x=30, y=100)
-                    self.labaut = Label(self.edcat, bg='#ffe8ec', fg='black', text='Author:', font=('Calibri', 12,'bold'))
+                    self.labaut = Label(self.edcat, bg='#ffe8ec', fg='#000000', text='Author:', font=('Calibri', 12,'bold'))
                                                                                             
                     self.labaut.place(x=30, y=140)
-                    self.labed = Label(self.edcat, bg='#ffe8ec', fg='black', text='Edition:', font=('Calibri', 12,'bold'))
+                    self.labed = Label(self.edcat, bg='#ffe8ec', fg='#000000', text='Edition:', font=('Calibri', 12,'bold'))
                                                                                             
                     self.labed.place(x=30, y=180)
-                    self.labpr = Label(self.edcat, bg='#ffe8ec', fg='black', text='Price:', font=('Calibri', 12,'bold'))
+                    self.labpr = Label(self.edcat, bg='#ffe8ec', fg='#000000', text='Price:', font=('Calibri', 12,'bold'))
                     self.labpr.place(x=30, y=220)
                 
                     self.en1=Entry(self.edcat,width=20,bd=4,relief='groove',font=('Times New Roman',9,'bold'))
@@ -639,16 +640,16 @@ class main:
                 self.frame.place(x=0,y=110)
                 self.f1 = Frame(self.frame, bg='#ffe8ec', width=500, height=200, bd=5, relief='flat')
                 self.f1.place(x=200, y=15)
-                self.ed = Frame(self.f1, bg='#581845', bd=0, relief='flat', width=130, height=35)
+                self.ed = Frame(self.f1, bg='#641b4e', bd=0, relief='flat', width=130, height=35)
                 self.ed.place(x=170, y=0)
-                self.lac = Label(self.ed, text='RETURN BOOKS ', bg='#581845', fg='#fff', font=('Calibri', 12, 'bold'))
+                self.lac = Label(self.ed, text='RETURN BOOKS ', bg='#641b4e', fg='#fff', font=('Calibri', 12, 'bold'))
                 self.lac.place(x=10, y=5)
-                self.label8 = Label(self.f1, text='ERP ID', bg='#ffe8ec', fg='black', font=('Times New Roman', 11, 'bold'))
+                self.label8 = Label(self.f1, text='ERP ID', bg='#ffe8ec', fg='#000000', font=('Times New Roman', 11, 'bold'))
                 self.label8.place(x=85, y=65)
                 self.entry4 = Entry(self.f1, width=30, bd=4, relief='groove', font=('Calibri', 8, 'bold'))
                 self.entry4.place(x=188, y=65)
-                self.button9 = Button(self.f1, text='RETURN', bg='#581845', fg='#fff', width=8, height=0,
-                                font=('Calibri', 12, 'bold'),command=self.retbook,activebackground="#000",activeforeground="#581845")
+                self.button9 = Button(self.f1, text='RETURN', bg='#641b4e', fg='#fff', width=8, height=0,
+                                font=('Calibri', 12, 'bold'),command=self.retbook,activebackground="#000",activeforeground="#641b4e")
                 self.button9.place(x=85, y=120)
                 
                 self.backbt = Button(self.frame, width=60, bg='#ffe8ec', activebackground='#ffe8ec',bd=0, relief='flat', command=self.cur)
@@ -721,21 +722,21 @@ class main:
                                 self.tom.resizable(0,0)
                                 self.tom.configure(bg="#ffe8ec")
 
-                                self.lb=Label(self.tom,text="Name of Student: ",bg="#ffe8ec",fg="black",font=('Calibri',11,'bold'))
+                                self.lb=Label(self.tom,text="Name of Student: ",bg="#ffe8ec",fg="#000000",font=('Calibri',11,'bold'))
                                 self.lb.place(x=5,y=20)
-                                self.lb2=Label(self.tom,text=self.var[1],bg="#ffe8ec",fg="black",font=('Calibri',11,'bold'))
+                                self.lb2=Label(self.tom,text=self.var[1],bg="#ffe8ec",fg="#000000",font=('Calibri',11,'bold'))
                                 self.lb2.place(x=130,y=20)
                                 
                                 self.charge=(5*chm)+int(self.var[10])
-                                self.lb3=Label(self.tom,text="Fine Charge: ",bg="#ffe8ec",fg="black",font=('Calibri',11,'bold'))
+                                self.lb3=Label(self.tom,text="Fine Charge: ",bg="#ffe8ec",fg="#000000",font=('Calibri',11,'bold'))
                                 self.lb3.place(x=5,y=55)
                                 
-                                self.lc2 = Label(self.tom, text=self.charge, bg="#ffe8ec", fg="black", font=('Calibri',11,'bold'))
+                                self.lc2 = Label(self.tom, text=self.charge, bg="#ffe8ec", fg="#000000", font=('Calibri',11,'bold'))
                                 self.lc2.place(x=130, y=55)
-                                self.lc3 = Label(self.tom, text='Rs.', bg="#ffe8ec", fg="black",font=('Calibri', 11, 'bold'))
+                                self.lc3 = Label(self.tom, text='Rs.', bg="#ffe8ec", fg="#000000",font=('Calibri', 11, 'bold'))
                                 self.lc3.place(x=150, y=55)
 
-                                self.tombtn = Button(self.tom,text='SUBMIT', background='#581845',foreground='white',font=('Calibri',12,'bold'),width=8,activebackground='black',activeforeground='#581845',relief='flat',command=self.retsucc)
+                                self.tombtn = Button(self.tom,text='SUBMIT', background='#641b4e',foreground='white',font=('Calibri',12,'bold'),width=8,activebackground='#000000',activeforeground='#641b4e',relief='flat',command=self.retsucc)
 
                                 self.tombtn.place(x=5,y=90)
                                 
@@ -769,11 +770,11 @@ class main:
                 self.ed.place(x=150, y=0)
                 self.lac = Label(self.ed, text='DELETE BOOKS ', bg='#7ea310', fg='#213502', font=('Calibri', 12,'bold'))
                 self.lac.place(x=7, y=3)
-                self.label8 = Label(self.f1, text='Book ID', bg='#ffe8ec', fg='black', font=('times new roman', 11, 'bold'))
+                self.label8 = Label(self.f1, text='Book ID', bg='#ffe8ec', fg='#000000', font=('times new roman', 11, 'bold'))
                 self.label8.place(x=85, y=65)
                 self.entry4 = Entry(self.f1, width=30, bd=4, relief='groove', font=('Calibri', 8, 'bold'))
                 self.entry4.place(x=188, y=65)
-                self.button9 = Button(self.f1, text='DELETE', bg='#7ea310', fg='#213502', width=8,font=('Calibri', 12, 'bold'),command=self.deldata,relief='flat',activebackground='black',activeforeground='#7ea310')
+                self.button9 = Button(self.f1, text='DELETE', bg='#7ea310', fg='#213502', width=8,font=('Calibri', 12, 'bold'),command=self.deldata,relief='flat',activebackground='#000000',activeforeground='#7ea310')
                 self.button9.place(x=85, y=120)
                 
                 self.backbt = Button(self.ff,width=60, bg='#ffe8ec',activebackground='#ffe8ec',bd=0, relief='flat', command=self.cur)
@@ -820,11 +821,11 @@ class main:
                 self.edm.place(x=140, y=0)
                 self.lac = Label(self.edm, text='SEARCH BOOKS ', bg='#b76e79', fg='#fff', font=('Calibri', 12, 'bold'))
                 self.lac.place(x=8, y=5)
-                self.label8 = Label(self.fc1, text='Book ID', bg='#ffe8ec', fg='black', font=('Times New Roman', 11, 'bold'))
+                self.label8 = Label(self.fc1, text='Book ID', bg='#ffe8ec', fg='#000000', font=('Times New Roman', 11, 'bold'))
                 self.label8.place(x=85, y=65)
                 self.entryl= Entry(self.fc1, width=30, bd=4, relief='groove', font=('Calibri', 8, 'bold'))
                 self.entryl.place(x=188, y=65)
-                self.butto = Button(self.fc1, text='SEARCH', bg='#b76e79', fg='#fff', width=8,font=('Calibri', 12, 'bold'),command=self.srch,relief='flat',activebackground='black',activeforeground='#b76e79')
+                self.butto = Button(self.fc1, text='SEARCH', bg='#b76e79', fg='#fff', width=8,font=('Calibri', 12, 'bold'),command=self.srch,relief='flat',activebackground='#000000',activeforeground='#b76e79')
                 self.butto.place(x=85, y=120)
 
                 self.backbt = Button(self.fc,width=60, bg='#ffe8ec',activebackground='#ffe8ec',bd=0, relief='flat', command=self.cur)
@@ -857,19 +858,19 @@ class main:
                     self.mnlb=Label(self.frm,bg='#b76e79',fg='#fff',text="AVAILABLE",font=('Calibri',12,'bold'))
                     self.mnlb.place(x=9,y=5)
 
-                    self.lb1 = Label(self.top, text='Title: ', bg='#ffe8ec', fg='black', font=('Calibri', 12, 'bold'))
+                    self.lb1 = Label(self.top, text='Title: ', bg='#ffe8ec', fg='#000000', font=('Calibri', 12, 'bold'))
                     self.lb1.place(x=85,y=70)
-                    self.lb2=Label(self.top,text=self.srval[1],bg='#ffe8ec', fg='black',font=('Calibri',12,'bold'))
+                    self.lb2=Label(self.top,text=self.srval[1],bg='#ffe8ec', fg='#000000',font=('Calibri',12,'bold'))
                     self.lb2.place(x=165,y=70)
 
-                    self.lb3 = Label(self.top, text='Author: ', bg='#ffe8ec', fg='black', font=('Calibri', 12, 'bold'))
+                    self.lb3 = Label(self.top, text='Author: ', bg='#ffe8ec', fg='#000000', font=('Calibri', 12, 'bold'))
                     self.lb3.place(x=85, y=110)
-                    self.lb4 = Label(self.top, text=self.srval[2], bg='#ffe8ec', fg='black', font=('Calibri', 12, 'bold'))
+                    self.lb4 = Label(self.top, text=self.srval[2], bg='#ffe8ec', fg='#000000', font=('Calibri', 12, 'bold'))
                     self.lb4.place(x=165, y=110)
 
-                    self.lb5 = Label(self.top, text='Edition: ',bg='#ffe8ec', fg='black', font=('Calibri', 12, 'bold'))
+                    self.lb5 = Label(self.top, text='Edition: ',bg='#ffe8ec', fg='#000000', font=('Calibri', 12, 'bold'))
                     self.lb5.place(x=85, y=150)
-                    self.lb6 = Label(self.top, text=self.srval[3], bg='#ffe8ec', fg='black', font=('Calibri', 12, 'bold'))
+                    self.lb6 = Label(self.top, text=self.srval[3], bg='#ffe8ec', fg='#000000', font=('Calibri', 12, 'bold'))
                     self.lb6.place(x=165, y=150)
                     self.entryl.delete(0,END)
                 
@@ -936,67 +937,70 @@ class main:
                 dbstore.commit()
                 
         oc=test()
-        
+    
+    # clear login creadentials
     def mainclear(self):
         self.e1.delete(0,END)
         self.e2.delete(0,END)
         
-       
+    
+    # start page functionality
     def code(self):
 
-            self.fm=Frame(root,height=500,width=900,bg='white')
-            self.fm.place(x=0,y=0)
+        self.fm=Frame(root,height=500,width=900,bg='white')
+        self.fm.place(x=0,y=0)
 
-            self.canvas=Canvas(self.fm,height=500,width=900,bg='#000000')
-            self.canvas.place(x=0,y=0)
+        self.canvas=Canvas(self.fm,height=500,width=900,bg='#000000')
+        self.canvas.place(x=0,y=0)
 
-            # image in backdrop of login page
-            self.photo=PhotoImage(file=r"images/library-background.png")
-            self.canvas.create_image(0,0,image=self.photo,anchor=NW)
+        # image in backdrop of login page
+        self.photo=PhotoImage(file=r"images/library-background.png")
+        self.canvas.create_image(0,0,image=self.photo,anchor=NW)
 
-            self.fm1=Frame(self.canvas,height=260,width=300,bg='#000000',bd=3,relief='sunken')
-            self.fm1.place(x=300,y=120)
-            
-            self.b1=Label(self.fm1,text='User ID',bg='black',font=('Arial',10,'bold'),fg='white')
-            self.b1.place(x=20,y=42)
+        self.fm1=Frame(self.canvas,height=260,width=300,bg='#993333',bd=3,relief='sunken')
+        self.fm1.place(x=300,y=120)
+        
+        self.b1=Label(self.fm1,text='User ID',bg='#000000',font=('Arial',10,'bold'),fg='white')
+        self.b1.place(x=20,y=42)
 
-            self.e1=Entry(self.fm1,width=22,font=('arial',9,'bold'),bd=4,relief='groove')
-            self.e1.place(x=100,y=40)
+        self.e1=Entry(self.fm1,width=22,font=('arial',9,'bold'),bd=4,relief='groove')
+        self.e1.place(x=100,y=40)
 
-            self.lb2=Label(self.fm1,text='Password',bg='black',font=('Arial',10,'bold'),fg='white')
-            self.lb2.place(x=20,y=102)
+        self.lb2=Label(self.fm1,text='Password',bg='#000000',font=('Arial',10,'bold'),fg='white')
+        self.lb2.place(x=20,y=102)
 
-            self.e2=Entry(self.fm1,width=22,show='*',font=('arial',9,'bold'),bd=4,relief='groove')
-            self.e2.place(x=100,y=100)
-            
-            self.btn1=Button(self.fm1,text='  Login',fg='black',bg='yellow',width=100,font=('Arial',11,'bold'),activebackground='black',activeforeground='yellow',command=self.login,bd=3,relief='flat',cursor='hand2')
-            self.btn1.place(x=25,y=160)
-            self.logo = PhotoImage(file=r"images/bt1.png")
-            self.btn1.config(image=self.logo, compound=LEFT)
-            self.small_logo = self.logo.subsample(1, 1)
-            self.btn1.config(image=self.small_logo)
+        self.e2=Entry(self.fm1,width=22,show='*',font=('arial',9,'bold'),bd=4,relief='groove')
+        self.e2.place(x=100,y=100)
+        
+        self.btn1=Button(self.fm1,text='  Login',fg='#000000',bg='#ffcc00',width=100,font=('Arial',11,'bold'),activebackground='#000000',activeforeground='#ffcc00',command=self.login,bd=3,relief='flat',cursor='hand2')
+        self.btn1.place(x=25,y=160)
+        self.logo = PhotoImage(file=r"images/bt1.png")
+        self.btn1.config(image=self.logo, compound=LEFT)
+        self.small_logo = self.logo.subsample(1, 1)
+        self.btn1.config(image=self.small_logo)
 
 
-            self.btn2=Button(self.fm1,text='  Clear',fg='black',bg='yellow',width=100,font=('Arial',11,'bold'),activebackground='black',activeforeground='yellow',bd=3,relief='flat',cursor='hand2',command=self.mainclear)
-            self.btn2.place(x=155,y=160)
-            self.log = PhotoImage(file=r"images/bt2.png")
-            self.btn2.config(image=self.log, compound=LEFT)
-            self.small_log = self.log.subsample(1, 1)
-            self.btn2.config(image=self.small_log)
-            
-            self.forgot=Label(self.fm1,text='Forgot Password?',fg='White',bg='#000000',activeforeground='black',font=('cursive',9,'bold'))
-            self.forgot.place(x=80,y=220)
-            self.forgot.bind("<Button>",self.mouseClick)
+        self.btn2=Button(self.fm1,text='  Clear',fg='#000000',bg='#ffcc00',width=100,font=('Arial',11,'bold'),activebackground='#000000',activeforeground='#ffcc00',bd=3,relief='flat',cursor='hand2',command=self.mainclear)
+        self.btn2.place(x=155,y=160)
+        self.log = PhotoImage(file=r"images/bt2.png")
+        self.btn2.config(image=self.log, compound=LEFT)
+        self.small_log = self.log.subsample(1, 1)
+        self.btn2.config(image=self.small_log)
+        
+        self.forgot=Label(self.fm1,text='Forgot Password?',fg='White',bg='#000000',activeforeground='#000000',font=('cursive',9,'bold'))
+        self.forgot.place(x=80,y=220)
+        self.forgot.bind("<Button>",self.mouseClick)
 
-            root.mainloop()
-            
+        root.mainloop()
+
+    # forgot password functionality        
     def mouseClick(self,event):
         self.rog=Tk()
         self.rog.title("Change password")
         self.rog.geometry("400x300+300+210")
         self.rog.iconbitmap("images/afterlogin1.ico")
         self.rog.resizable(0,0)
-        self.rog.configure(bg='#000')
+        self.rog.configure(bg='#000000')
 
         self.framerog=Frame(self.rog,width=160,height=30,bg="#d6ed17")
         self.framerog.place(x=95,y=15)
@@ -1016,9 +1020,10 @@ class main:
         self.ef2 = Entry(self.rog, width=24, font=('Calibri', 8, 'bold'), bd=4, relief='groove')
         self.ef2.place(x=170, y=170)
 
-        self.btn1 = Button(self.rog, text='SUBMIT', fg='#606060', bg='#d6ed17', width=8, font=('Calibri', 12, 'bold'),activebackground='black', activeforeground='#d6ed17',bd=3, relief='flat',cursor='hand2',command=self.chan_pas)
+        self.btn1 = Button(self.rog, text='SUBMIT', fg='#606060', bg='#d6ed17', width=8, font=('Calibri', 12, 'bold'),activebackground='#000000', activeforeground='#d6ed17',bd=3, relief='flat',cursor='hand2',command=self.chan_pas)
         self.btn1.place(x=40, y=240)
-        
+    
+    # update or change password functionality
     def chan_pas(self):
         self.a=self.ef1.get()
         self.b=self.ef2.get()
